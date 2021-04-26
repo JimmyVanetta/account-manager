@@ -69,7 +69,7 @@
                 this.$store.dispatch('getAccount', e.target.value)
             },
             addAccount() {
-                if (checkForEmpty() != "") {
+                if (checkForEmpty() != true) {
                     let currentTime = new Date()
                     let account = {
                         name: document.getElementById('name-input').value,
@@ -85,7 +85,7 @@
                     }
                     this.$store.dispatch('addAccount', account)
                     this.$store.dispatch('clearAccount')
-                    clearField()
+                    clearForm()
                 }
             }
         },
@@ -96,9 +96,10 @@
         }
     }
     function checkForEmpty() {
-        return document.getElementById("name-input").value
+        var array = getFormValues()
+        return array.includes("")
     }
-    function clearField() {
+    function clearForm() {
         document.getElementById("name-input").value = ""
         document.getElementById('contact-input').value = ""
         document.getElementById('phone-input').value = ""
@@ -106,6 +107,17 @@
         document.getElementById('city-input').value = ""
         document.getElementById('state-input').value = ""
         document.getElementById('zip-input').value = ""
+    }
+    function getFormValues() {
+        var nam = document.getElementById("name-input").value
+        var con = document.getElementById('contact-input').value
+        var pho = document.getElementById('phone-input').value
+        var adr = document.getElementById('address-input').value
+        var cit = document.getElementById('city-input').value
+        var sta = document.getElementById('state-input').value
+        var zip = document.getElementById('zip-input').value
+
+        return [ nam, con, pho, adr, cit, sta, zip ]
     }
 </script>
 

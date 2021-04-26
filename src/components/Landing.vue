@@ -1,6 +1,6 @@
 <template>
     <div id="landing-page" class="">
-        <h1 class="">Welcome to Account-Manager!</h1>
+        <p class="text-5x1">Welcome to Account-Manager!</p>
         <ul class="flex content-center">
             <li class="mr-6">
                 <router-link :to="{ name: 'AddAccount' }" class="text-blue-500 hover:text-blue-800">Add Accounts</router-link>
@@ -20,6 +20,6 @@
     } 
 </script>
 
-<style scoped>
+<style>
 
 </style>

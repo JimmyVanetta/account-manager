@@ -12,7 +12,7 @@ export default new Vuex.Store({
         getNewAccount: state => state.newAccount,
         getAccounts: state => state.accounts.filter(account => !account.isObsolete), // not obsolete
         getObsoleteAccounts: state => state.accounts.filter(account => account.isObsolete),// obsolete
-        getVerifiedAccounts: state => state.accounts.filter((account) => {return account.verified})// verified
+        getVerifiedAccounts: state => state.accounts.filter((account) => account.verified)// verified
     },
     actions: {
         getAccount({commit}, account) {
@@ -41,7 +41,7 @@ export default new Vuex.Store({
         ADD_ACCOUNT(state, account) {
             //state.accounts = [...accounts, account]
             let id = guid();
-            state.accounts[id] = Object.assign({ id : id }, account)
+            account = Object.assign({ id : id }, account)
             state.accounts.push(account)
         },
         EDIT_ACCOUNT(state, account) {
@@ -70,6 +70,5 @@ const guid = function () {
     .toString(16)
     .substring(1);
     }
-    return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
-    s4() + '-' + s4() + s4() + s4();
+    return s4() + s4()
 };
