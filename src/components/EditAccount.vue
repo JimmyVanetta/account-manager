@@ -33,19 +33,9 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex'
+//import {mapState} from 'vuex'
 
     export default {
-        methods: {
-            ...mapActions([
-                'editAccount',
-            ]),
-        },
-        computed: {
-            ...mapGetters([
-                ''//get account by id
-            ]),
-        }
     }
 </script>
 

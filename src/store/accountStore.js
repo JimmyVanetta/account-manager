@@ -10,9 +10,9 @@ export default new Vuex.Store({
     },
     getters: {
         getNewAccount: state => state.newAccount,
-        getAccounts: state => state.accounts.filter(account => !account.isObsolete), // not obsolete
+        getAccounts: state => state.accounts.filter(account => !account.isObsolete),// not obsolete
         getObsoleteAccounts: state => state.accounts.filter(account => account.isObsolete),// obsolete
-        getVerifiedAccounts: state => state.accounts.filter((account) => account.verified)// verified
+        getVerifiedAccounts: state => state.accounts.filter(account => account.verified)// verified
     },
     actions: {
         getAccount({commit}, account) {
@@ -27,7 +27,7 @@ export default new Vuex.Store({
         removeAccount({commit}, account) {
             commit('REMOVE_ACCOUNT', account)
         },
-         verifyAccount({commit}, account) {
+        verifyAccount({commit}, account) {
             commit('VERIFY_ACCOUNT', account)
          },
         clearAccount({commit}) {

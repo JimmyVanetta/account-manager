@@ -20,9 +20,9 @@ export const routes = [
         name: 'AddAccount' 
     },
     {
-        path: '/accounts/edit/:accountId',
+        path: '/accounts/:accountId/edit',
         component: EditAccount,
-        name: 'EditAccounts',
+        name: 'EditAccount',
         props: true,
     }
 ]

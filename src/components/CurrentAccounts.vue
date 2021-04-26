@@ -17,12 +17,12 @@
                     <td class="border border-gray-400 px-4 py-2">{{isVerified}}</td>
                     <td class="border border-gray-400 px-4 py-2">
                         <div class="inline-flex">
-                            <button class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-l">
+                            <router-link :to="{ name: 'GetAccount', params: { accountId: account.id } }" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-l" type="button">
                                 Details
-                            </button>
-                            <button class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-r">
+                            </router-link>
+                            <router-link :to="{ name: 'EditAccount', params: { accountId: account.id} }" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-r" type="button">
                                 Edit
-                            </button>
+                            </router-link>
                         </div>
                     </td>
                 </tr>
