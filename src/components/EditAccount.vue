@@ -33,9 +33,33 @@
 </template>
 
 <script>
-//import {mapState} from 'vuex'
-
+import { mapActions, mapGetters } from 'vuex'
     export default {
+        name: 'EditAccount',
+
+        data: () => {
+            return {
+                selectedAccount: {},
+            }
+        },
+        mounted () {
+            if ('accountId' in this.$route.params) {
+                let selectedAccount = this.getAccountById(this.$route.params.accountId)
+                if (selectedAccount) {
+                    this.selectedAccount = selectedAccount
+                }
+            }
+        },
+        methods: {
+            ...mapActions([
+                'editAccount'
+            ]),
+        },
+        computed: {
+            ...mapGetters([
+                'getAccountById'
+            ]),
+        }
     }
 </script>
 
