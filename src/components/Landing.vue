@@ -1,6 +1,5 @@
 <template>
     <div id="landing-page" class="">
-        <img class="object-center" src="../assets/logo.png" />
         <p class="text-5x1">Welcome to Account-Manager!</p>
         <ul class="flex content-center">
             <li class="mr-6">

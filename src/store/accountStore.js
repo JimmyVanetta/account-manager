@@ -11,7 +11,10 @@ export default new Vuex.Store({
     getters: {
         getNewAccount: state => state.newAccount,
         getAccounts: state => state.accounts.filter(account => !account.isObsolete),// not obsolete
-        getAccountById: (state, accountId) => state.accounts.filter(account => account.id === accountId),
+        //getAccountById: (state, accountId) => state.accounts.filter(account => account.id === accountId),
+        getAccountById: state => id => {
+            return state.accounts.find(account => account.id === id)
+        },
         getObsoleteAccounts: state => state.accounts.filter(account => account.isObsolete),// obsolete
         getVerifiedAccounts: state => state.accounts.filter(account => account.verified)// verified
     },

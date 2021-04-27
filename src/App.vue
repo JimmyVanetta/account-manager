@@ -1,23 +1,14 @@
 <template>
   <div id="app">
+    <img class="object-center" src="./assets/logo.png" />
     <router-view></router-view>
-    <!-- <Landing></Landing>
-    <AddAccount></AddAccount>
-    <CurrentAccounts></CurrentAccounts> -->
   </div>
 </template>
 
 <script>
-// import Landing from './components/Landing'
-// import AddAccount from './components/AddAccount'
-// import CurrentAccounts from './components/CurrentAccounts'
-
 export default {
   name: 'App',
    components: {
-    // Landing,
-    // AddAccount,
-    // CurrentAccounts
    }
 }
 </script>

@@ -1,5 +1,6 @@
 <template>
     <div id="current-accounts" class="">
+
         <p v-if="accounts.length > 0">Currently Displaying {{accounts.length}} Accounts</p>
         <table id="accounts-table" class="table-auto border-collapse border-2 border-gray-500">
             <thead>
@@ -35,15 +36,15 @@
     import {mapState} from 'vuex'
     export default {
         methods: {
-            edit(account) {
-                this.$store.dispatch('editAccount', account)
-            },
-            verify(account) {
-                this.$store.dispatch('verifyAccount', account)
-            },
-            remove(account) {
-                this.$store.dispatch('removeAccount', account)
-            }
+            // edit(account) {
+            //     this.$store.dispatch('editAccount', account)
+            // },
+            // verify(account) {
+            //     this.$store.dispatch('verifyAccount', account)
+            // },
+            // remove(account) {
+            //     this.$store.dispatch('removeAccount', account)
+            // }
         },
         computed: {
             ...mapState({
