@@ -57,18 +57,27 @@
                     >
                 </div>
             </div>
-            <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 border border-blue-700 rounded" type="button" @click="addAccount">Submit</button>
+            <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 border border-blue-700 rounded" type="button" @click="add">Submit</button>
         </form>
     </div>
 </template>
 
 <script>
+import {mapActions} from 'vuex'
+
     export default {
+        name: 'AddAccount',
+
+        data: () => {
+            return {
+                account: {}
+            }
+        },
         methods: {
-            getAccount(e) {
-                this.$store.dispatch('getAccount', e.target.value)
-            },
-            addAccount() {
+            ...mapActions([
+                'addAccount'
+            ]),
+            add() {
                 if (checkForEmpty() != true) {
                     let currentTime = new Date()
                     let account = {
@@ -83,8 +92,10 @@
                         verified: false,
                         isObsolete: false
                     }
+                    this.account = account
                     this.$store.dispatch('addAccount', account)
                     this.$store.dispatch('clearAccount')
+                    // this.addAccount(this.account)
                     clearForm()
                 }
             }

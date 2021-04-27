@@ -1,6 +1,17 @@
 <template>
   <div id="app">
     <img class="object-center" src="./assets/logo.png" />
+    <ul class="flex content-center">
+      <li class="mr-6">
+        <router-link :to="{ name: 'Landing' }" class="text-blue-500 hover:text-blue-800">Home</router-link>
+      </li>
+      <li class="mr-6">
+        <router-link :to="{ name: 'AddAccount' }" class="text-blue-500 hover:text-blue-800">Add Accounts</router-link>
+      </li>
+      <li class="mr-6">
+        <router-link :to="{ name: 'CurrentAccounts' }" class="text-blue-500 hover:text-blue-800">View Accounts</router-link>
+      </li>
+    </ul>
     <router-view></router-view>
   </div>
 </template>

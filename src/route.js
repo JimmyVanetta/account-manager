@@ -1,6 +1,7 @@
 import Landing from './components/Landing.vue'
 import AddAccount from './components/AddAccount.vue'
 import CurrentAccounts from './components/CurrentAccounts.vue'
+import GetAccount from './components/GetAccount.vue'
 import EditAccount from './components/EditAccount.vue'
 
 export const routes = [
@@ -20,9 +21,15 @@ export const routes = [
         name: 'AddAccount' 
     },
     {
+        path: '/accounts/:accountId',
+        component: GetAccount,
+        name: 'GetAccount',
+        props: true
+    },
+    {
         path: '/accounts/:accountId/edit',
         component: EditAccount,
         name: 'EditAccount',
-        props: true,
+        props: true
     }
 ]

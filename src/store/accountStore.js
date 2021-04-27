@@ -9,14 +9,17 @@ export default new Vuex.Store({
         newAccount: ''
     },
     getters: {
+        //**ACCOUNT GETTERS**//
         getNewAccount: state => state.newAccount,
-        getAccounts: state => state.accounts.filter(account => !account.isObsolete),// not obsolete
-        //getAccountById: (state, accountId) => state.accounts.filter(account => account.id === accountId),
+        getAccounts: state => state.accounts.filter(account => !account.isObsolete),
+        //
         getAccountById: state => id => {
             return state.accounts.find(account => account.id === id)
         },
-        getObsoleteAccounts: state => state.accounts.filter(account => account.isObsolete),// obsolete
-        getVerifiedAccounts: state => state.accounts.filter(account => account.verified)// verified
+        //
+        getVerifiedAccounts: state => state.accounts.filter(account => account.verified),
+        getObsoleteAccounts: state => state.accounts.filter(account => account.isObsolete)
+        //**EMPLOYEE GETTERS**//
     },
     actions: {
         getAccount({commit}, account) {
@@ -43,17 +46,14 @@ export default new Vuex.Store({
             state.newAccount = account;
         },
         ADD_ACCOUNT(state, account) {
-            //state.accounts = [...accounts, account]
-            let id = guid();
+            let id = guid()
             account = Object.assign({ id : id }, account)
             state.accounts.push(account)
         },
         EDIT_ACCOUNT(state, account) {
-            // var accounts = state.accounts
-            // accounts.splice(accounts.indexOf(account), 1)
-            // state.accounts = accounts
-            // state.newAccount = account.body
-            state.accounts[account.id] = account;
+            var accounts = state.accounts
+            accounts.splice(accounts.indexOf(account),0)
+            state.accounts = accounts
         },
         REMOVE_ACCOUNT(state, account) {
             var accounts = state.accounts
@@ -67,7 +67,6 @@ export default new Vuex.Store({
         }
     }
 })
-// generate unique ID
 const guid = function () {
     function s4 () {
     return Math.floor((1 + Math.random()) * 0x10000)

@@ -36,15 +36,6 @@
     import {mapState} from 'vuex'
     export default {
         methods: {
-            // edit(account) {
-            //     this.$store.dispatch('editAccount', account)
-            // },
-            // verify(account) {
-            //     this.$store.dispatch('verifyAccount', account)
-            // },
-            // remove(account) {
-            //     this.$store.dispatch('removeAccount', account)
-            // }
         },
         computed: {
             ...mapState({
