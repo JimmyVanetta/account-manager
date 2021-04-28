@@ -49,7 +49,4 @@
 </script>
 
 <style scoped>
-    .btn-group {
-        float: right;
-    }
 </style>
