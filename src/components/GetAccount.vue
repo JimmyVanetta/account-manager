@@ -4,9 +4,9 @@
             {{item}}
         </p>
         <div class="inline-flex">
-            <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 border border-blue-700 rounded" type="button">Verify</button>
-            <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 border border-gray-700 rounded" type="button">Delete</button>
-            <router-link :to="{ name: 'EditAccount', params: { accountId: this.selectedAccount.id} }" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 border border-gray-700 rounded" type="button">
+            <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 border border-blue-700 rounded" @click="verify" type="button">Verify</button>
+            <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 border border-gray-700 rounded" @click="remove" type="button">Delete</button>
+            <router-link :to="{ name: 'EditAccount', params: { accountId: this.$route.params.accountId } }" class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 border border-gray-700 rounded" type="button">
                 Edit
             </router-link>
         </div>
@@ -14,7 +14,6 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
 import { mapActions, mapGetters } from 'vuex'
 
     export default {
@@ -39,11 +38,15 @@ import { mapActions, mapGetters } from 'vuex'
                 'verifyAccount',
                 'removeAccount'
             ]),
+            verify() {
+                this.$store.dispatch('verifyAccount', this.selectedAccount)
+            },
+            remove() {
+                this.$store.dispatch('removeAccount', this.selectedAccount)
+                this.$router.push({ name: 'CurrentAccounts' })
+            }
         },
         computed: {
-            ...mapState({
-                accounts: (state) => state.accounts
-            }),
             ...mapGetters([
                 'getAccountById'
             ]),

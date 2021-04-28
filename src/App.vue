@@ -17,10 +17,23 @@
 </template>
 
 <script>
+import { mapActions, mapGetters } from 'vuex'
+
 export default {
   name: 'App',
-   components: {
-   }
+
+  data: () => {
+  },
+  mounted () {
+  },
+  methods: {
+    ...mapActions([
+    ]),
+  },
+  computed: {
+    ...mapGetters([
+    ]),
+  }
 }
 </script>
 

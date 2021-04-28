@@ -94,9 +94,8 @@ import {mapActions} from 'vuex'
                     }
                     this.account = account
                     this.$store.dispatch('addAccount', account)
-                    this.$store.dispatch('clearAccount')
-                    // this.addAccount(this.account)
                     clearForm()
+                    this.$router.push({ name: 'CurrentAccounts' })
                 }
             }
         },

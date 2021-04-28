@@ -56,7 +56,6 @@
 </template>
 
 <script>
-import {mapState} from 'vuex'
 import { mapActions, mapGetters } from 'vuex'
     export default {
         name: 'EditAccount',
@@ -95,9 +94,6 @@ import { mapActions, mapGetters } from 'vuex'
             },
         },
         computed: {
-            ...mapState({
-                accounts: (state) => state.accounts
-            }),
             ...mapGetters([
                 'getAccountById'
             ]),

@@ -1,7 +1,7 @@
 <template>
     <div id="current-accounts" class="">
 
-        <p v-if="accounts.length > 0">Currently Displaying {{accounts.length}} Accounts</p>
+        <p v-if="activeAccounts.length > 0">Currently Displaying {{activeAccounts.length}} Accounts</p>
         <table id="accounts-table" class="table-auto border-collapse border-2 border-gray-500">
             <thead>
                 <tr>
@@ -12,10 +12,10 @@
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="(account, index) in accounts" :key="index">
+                <tr v-for="(account, index) in activeAccounts" :key="index">
                     <td class="border border-gray-400 px-4 py-2">{{account.name}}</td>
                     <td class="border border-gray-400 px-4 py-2">{{account.created}}</td>
-                    <td class="border border-gray-400 px-4 py-2">{{isVerified}}</td>
+                    <td class="border border-gray-400 px-4 py-2">{{account.verified ? "Y" : "N" }}</td>
                     <td class="border border-gray-400 px-4 py-2">
                         <div class="inline-flex">
                             <router-link :to="{ name: 'GetAccount', params: { accountId: account.id } }" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-l" type="button">
@@ -33,7 +33,9 @@
 </template>
 
 <script>
-    import {mapState} from 'vuex'
+    import { mapState, mapGetters } from 'vuex'
+
+
     export default {
         methods: {
         },
@@ -41,9 +43,9 @@
             ...mapState({
                 accounts: (state) => state.accounts
             }),
-            isVerified: function (account) {
-                return (account.verified ? 'Y' : 'N')
-            },
+            ...mapGetters({
+                activeAccounts: "getAllAccounts"
+            }),
         }
     }
 </script>

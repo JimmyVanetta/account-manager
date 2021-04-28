@@ -1,17 +1,18 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import { guid } from '../utils/utils.js'
+//import api from '../api/api.js'
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
-    state:{
+    state: {
         accounts: [],
         newAccount: ''
     },
     getters: {
-        //**ACCOUNT GETTERS**//
         getNewAccount: state => state.newAccount,
-        getAccounts: state => state.accounts.filter(account => !account.isObsolete),
+        getAllAccounts: state => state.accounts.filter(account => !account.isObsolete),
         //
         getAccountById: state => id => {
             return state.accounts.find(account => account.id === id)
@@ -19,7 +20,6 @@ export default new Vuex.Store({
         //
         getVerifiedAccounts: state => state.accounts.filter(account => account.verified),
         getObsoleteAccounts: state => state.accounts.filter(account => account.isObsolete)
-        //**EMPLOYEE GETTERS**//
     },
     actions: {
         getAccount({commit}, account) {
@@ -37,9 +37,6 @@ export default new Vuex.Store({
         verifyAccount({commit}, account) {
             commit('VERIFY_ACCOUNT', account)
          },
-        clearAccount({commit}) {
-            commit('CLEAR_ACCOUNT')
-        }
     },
     mutations: {
         GET_ACCOUNT(state, account) {
@@ -57,21 +54,15 @@ export default new Vuex.Store({
         },
         REMOVE_ACCOUNT(state, account) {
             var accounts = state.accounts
-            accounts.splice(accounts.indexOf(account), 1)
+            account.isObsolete = !account.isObsolete
+            accounts.splice(accounts.indexOf(account), 0)
+            state.accounts = accounts
         },
          VERIFY_ACCOUNT(state, account) {
+            var accounts = state.accounts 
             account.verified = !account.verified
+            accounts.splice(accounts.indexOf(account), 0)
+            state.accounts = accounts
          },
-        CLEAR_ACCOUNT(state) {
-            state.newAccount = ''
-        }
     }
 })
-const guid = function () {
-    function s4 () {
-    return Math.floor((1 + Math.random()) * 0x10000)
-    .toString(16)
-    .substring(1);
-    }
-    return s4() + s4()
-};
