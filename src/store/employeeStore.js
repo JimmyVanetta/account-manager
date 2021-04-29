@@ -14,6 +14,9 @@ export default new Vuex.store({
 
     },
     actions: {
+        // getAllEmployees () {
+        
+        // },
         getEmployee({commit}, employee) {
             commit('GET_EMPLOYEE', employee)
         },
@@ -28,7 +31,7 @@ export default new Vuex.store({
         },
     },
     mutations: {
-        GET_EMPLOYEES(state, employee) {
+        GET_EMPLOYEE(state, employee) {
             state.newEmployee = employee
         },
         ADD_EMPLOYEE(state, employee) {

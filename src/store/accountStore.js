@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import { guid } from '../utils/utils.js'
-//import api from '../api/api.js'
+import api from '../api/api.js'
 
 Vue.use(Vuex)
 
@@ -12,7 +12,7 @@ export default new Vuex.Store({
     },
     getters: {
         getNewAccount: state => state.newAccount,
-        getAllAccounts: state => state.accounts.filter(account => !account.isObsolete),
+        getCurrentAccounts: state => state.accounts.filter(account => !account.isObsolete),
         //
         getAccountById: state => id => {
             return state.accounts.find(account => account.id === id)
@@ -22,6 +22,11 @@ export default new Vuex.Store({
         getObsoleteAccounts: state => state.accounts.filter(account => account.isObsolete)
     },
     actions: {
+        getAllAccounts ({commit}) {
+            api.getAllAccounts(accounts => {
+                commit('SET_ACCOUNTS', accounts)
+            })
+        },
         getAccount({commit}, account) {
             commit('GET_ACCOUNT', account)
         },
@@ -39,6 +44,9 @@ export default new Vuex.Store({
          },
     },
     mutations: {
+        SET_ACCOUNTS (state, accounts) {
+            state.accounts = accounts
+        },
         GET_ACCOUNT(state, account) {
             state.newAccount = account;
         },

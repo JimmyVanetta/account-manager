@@ -35,7 +35,6 @@
 <script>
     import { mapState, mapGetters } from 'vuex'
 
-
     export default {
         methods: {
         },
@@ -44,7 +43,9 @@
                 accounts: (state) => state.accounts
             }),
             ...mapGetters({
-                activeAccounts: "getAllAccounts"
+                activeAccounts: "getCurrentAccounts",
+                obsoleteAccounts: "getObsoleteAccounts",
+                verifiedAccounts: "getVerifiedAccounts"
             }),
         }
     }

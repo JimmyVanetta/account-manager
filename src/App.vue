@@ -19,22 +19,26 @@
 <script>
 import { mapActions, mapGetters } from 'vuex'
 
-export default {
-  name: 'App',
+  export default {
+    name: 'App',
 
-  data: () => {
-  },
-  mounted () {
-  },
-  methods: {
-    ...mapActions([
-    ]),
-  },
-  computed: {
-    ...mapGetters([
-    ]),
+    // data: () => {
+    // },
+    // mounted () {
+    // },
+    async created() {
+      this.$store.dispatch("getAllAccounts")
+    },
+    methods: {
+      ...mapActions([
+        'getAllAccounts'
+      ]),
+    },
+    computed: {
+      ...mapGetters([
+      ]),
+    }
   }
-}
 </script>
 
 <style>

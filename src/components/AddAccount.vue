@@ -79,7 +79,6 @@ import {mapActions} from 'vuex'
             ]),
             add() {
                 if (checkForEmpty() != true) {
-                    let currentTime = new Date()
                     let account = {
                         name: document.getElementById('name-input').value,
                         contact: document.getElementById('contact-input').value,
@@ -88,35 +87,22 @@ import {mapActions} from 'vuex'
                         city: document.getElementById('city-input').value,
                         state: document.getElementById('state-input').value,
                         zip: document.getElementById('zip-input').value,
-                        created: currentTime, 
+                        created: new Date(), 
                         verified: false,
                         isObsolete: false
                     }
                     this.account = account
                     this.$store.dispatch('addAccount', account)
-                    clearForm()
                     this.$router.push({ name: 'CurrentAccounts' })
                 }
             }
         },
         computed: {
-            newAccount() {
-                return this.$store.getters.newAccount
-            }
         }
     }
     function checkForEmpty() {
         var array = getFormValues()
         return array.includes("")
-    }
-    function clearForm() {
-        document.getElementById("name-input").value = ""
-        document.getElementById('contact-input').value = ""
-        document.getElementById('phone-input').value = ""
-        document.getElementById('address-input').value = ""
-        document.getElementById('city-input').value = ""
-        document.getElementById('state-input').value = ""
-        document.getElementById('zip-input').value = ""
     }
     function getFormValues() {
         var nam = document.getElementById("name-input").value
