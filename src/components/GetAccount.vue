@@ -1,9 +1,9 @@
 <template>
     <div id="get-account" class="rounded bg-white shadow max-w-md mx-auto">
-        <label :for="index">{{index}}</label>
-        <p v-for="(item, index) in this.eAccount" :key="index" :id="index">
-            {{item}}
-        </p>
+        <div v-for="(item, index) in this.eAccount" :key="index">
+            <label :for="index">{{index}}</label>
+            <p :id="index">{{item}}</p>
+        </div>
         <div class="inline-flex">
             <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 border border-blue-700 rounded" @click="verify" type="button">Verify</button>
             <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 border border-gray-700 rounded" @click="remove" type="button">Delete</button>
