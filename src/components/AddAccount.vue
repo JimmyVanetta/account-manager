@@ -1,5 +1,5 @@
 <template>
-    <div id="get-account" class="">
+    <div id="add-account" class="">
         <form class="w-full max-x-sm">
             <div class="md:flex md:items-center mb-6">
                 <div class="md:w-1/3">
@@ -92,7 +92,7 @@ import {mapActions} from 'vuex'
                         isObsolete: false
                     }
                     this.account = account
-                    this.$store.dispatch('addAccount', account)
+                    this.$store.dispatch('accountStore/addAccount', account)
                     this.$router.push({ name: 'CurrentAccounts' })
                 }
             }

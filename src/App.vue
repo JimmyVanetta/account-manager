@@ -1,6 +1,6 @@
 <template>
-  <div id="app">
-    <img class="object-center" src="./assets/logo.png" />
+  <div id="app" class="">
+    <img class="" src="./assets/logo.png" />
     <ul class="flex content-center">
       <li class="mr-6">
         <router-link :to="{ name: 'Landing' }" class="text-blue-500 hover:text-blue-800">Home</router-link>
@@ -22,16 +22,18 @@ import { mapActions, mapGetters } from 'vuex'
   export default {
     name: 'App',
 
-    // data: () => {
-    // },
-    // mounted () {
-    // },
+    data: () => {
+    },
+    mounted () {
+    },
     async created() {
-      this.$store.dispatch("getAllAccounts")
+      this.$store.dispatch("accounts/getAccounts")
+      this.$store.dispatch("employees/getEmployees")
     },
     methods: {
       ...mapActions([
-        'getAllAccounts'
+        'accounts/getAccounts',
+        'employees/getEmployees'
       ]),
     },
     computed: {

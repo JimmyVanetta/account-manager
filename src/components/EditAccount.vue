@@ -29,7 +29,7 @@ import { mapActions, mapGetters } from 'vuex'
         },
         created () {
             if ('accountId' in this.$route.params) {
-                let selectedAccount = this.getAccountById(this.$route.params.accountId)
+                let selectedAccount = this['accounts/getAccountById'](this.$route.params.accountId)
                 if (selectedAccount) {
                     this.selectedAccount = selectedAccount
                     this.eAccount = {
@@ -67,13 +67,10 @@ import { mapActions, mapGetters } from 'vuex'
             cancel() {
                 this.$router.back()
             },
-            rePop() {
-                return null
-            },
         },
         computed: {
             ...mapGetters([
-                'getAccountById'
+                'accounts/getAccountById'
             ]),
         },
     }

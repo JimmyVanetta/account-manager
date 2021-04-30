@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import App from './App.vue'
 import VueRouter from 'vue-router'
-import AccountStore from './store/accountStore'
+import store from './store'
 import { routes } from './route'
 
 Vue.config.productionTip = false
@@ -13,10 +13,8 @@ const router = new VueRouter({
 })
 
 new Vue({
-  store: AccountStore,
   el: '#app',
   router,
-  AccountStore,
-  components: { App },
+  store,
   render: h => h(App),
 }).$mount('#app')

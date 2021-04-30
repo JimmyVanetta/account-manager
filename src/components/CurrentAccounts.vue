@@ -1,7 +1,5 @@
 <template>
     <div id="current-accounts" class="">
-
-        <p v-if="activeAccounts.length > 0">Currently Displaying {{activeAccounts.length}} Accounts</p>
         <table id="accounts-table" class="table-auto border-collapse border-2 border-gray-500">
             <thead>
                 <tr>
@@ -12,7 +10,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="(account, index) in activeAccounts" :key="index">
+                <tr v-for="(account, index) in currentAccounts" :key="index">
                     <td class="border border-gray-400 px-4 py-2">{{account.name}}</td>
                     <td class="border border-gray-400 px-4 py-2">{{account.created}}</td>
                     <td class="border border-gray-400 px-4 py-2">{{account.verified ? "Y" : "N" }}</td>
@@ -33,20 +31,26 @@
 </template>
 
 <script>
-    import { mapState, mapGetters } from 'vuex'
+    import { mapGetters } from 'vuex'
 
     export default {
+        name: "CurrentAccounts",
+        
+        data: () => {
+            return {
+            }
+        },
+        created () {                
+        },
+        mounted () {
+
+        },
         methods: {
         },
         computed: {
-            ...mapState({
-                accounts: (state) => state.accounts
-            }),
             ...mapGetters({
-                activeAccounts: "getCurrentAccounts",
-                obsoleteAccounts: "getObsoleteAccounts",
-                verifiedAccounts: "getVerifiedAccounts"
-            }),
+                currentAccounts: "accounts/getCurrentAccounts"
+            })
         }
     }
 </script>
