@@ -2,7 +2,7 @@
     <div id="get-account" class="block">
         <div class="rounded bg-white shadow max-w-md mx-auto block mt-5 mb-5">
             <div v-for="(item, index) in this.eAccount" :key="index" class="block mt-2">
-                <label :for="index">{{index}}</label>
+                <label :for="index" class="font-bold">{{index}}</label>
                 <p :id="index">{{item}}</p>
             </div>
             <div class="inline-flex mt-5 mb-5">
@@ -48,7 +48,8 @@ import { mapActions, mapGetters } from 'vuex'
                         address: selectedAccount.address,
                         city: selectedAccount.city,
                         state: selectedAccount.state,
-                        zip: selectedAccount.zip
+                        zip: selectedAccount.zip,
+                        created: selectedAccount.created
                     }
                 }
             }

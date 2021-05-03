@@ -57,7 +57,8 @@
                     >
                 </div>
             </div>
-            <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 border border-blue-700 rounded" type="button" @click="add">Submit</button>
+            <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 border border-blue-700 rounded-l" type="button" @click="add">Submit</button>
+            <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 border border-black rounded-r" @click="cancel" type="button">Cancel</button>
         </form>
     </div>
 </template>
@@ -95,6 +96,9 @@ import {mapActions} from 'vuex'
                     this.$store.dispatch('accountStore/addAccount', account)
                     this.$router.push({ name: 'CurrentAccounts' })
                 }
+            },
+            cancel() {
+                this.$router.back()
             }
         },
         computed: {

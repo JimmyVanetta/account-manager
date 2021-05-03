@@ -6,20 +6,20 @@
                     <th class="border border-gray-400 px-4 py-2">Name</th>
                     <th class="border border-gray-400 px-4 py-2">Phone</th>
                     <th class="border border-gray-400 px-4 py-2">Hire Date</th>
-                    <th class="border border-gray-400 px-4 py-2">Actions</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="(employee, index) in currentEmployees" :key="index">
+                <tr v-for="(employee, index) in this.currentEmployees" :key="index">
                     <td class="border border-gray-400 px-4 py-2">{{employee.name}}</td>
                     <td class="border border-gray-400 px-4 py-2">{{employee.phone}}</td>
                     <td class="border border-gray-400 px-4 py-2">{{employee.hireDate}}</td>
                     <td class="border border-gray-400 px-4 py-2">
                         <div class="inline-flex">
-                            <router-link :to="{ name: 'GetEmployee', params: { accountId: account.id } }" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-l" type="button">
+                            <router-link :to="{ name: 'GetEmployee', params: { employeeId: employee.id } }" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-l" type="button">
                                 Details
                             </router-link>
-                            <router-link :to="{ name: 'EditEmployee', params: { accountId: account.id} }" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-r" type="button">
+                            <router-link :to="{ name: 'EditEmployee', params: { employeeId: employee.id} }" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-r" type="button">
                                 Edit
                             </router-link>
                         </div>
@@ -27,6 +27,7 @@
                 </tr>
             </tbody>
         </table>
+        <button class="bg-gray-300 hover:bg-gray-400 text-black font-bold py-2 px-4 border border-black rounded" type="button" @click="goBack">Back</button>
     </div>
 </template>
 
@@ -52,6 +53,9 @@
         mounted () {
         },
         methods: {
+            goBack() {
+                this.$router.back()
+            }
         },
         computed: {
             ...mapGetters([

@@ -58,7 +58,7 @@ const mockEmployees = [
         "city": "Medina",
         "state": "Ohio",
         "zip": "44256",
-        "hired": new Date()
+        "hireDate": new Date()
     },
     {
         "id": eGuid(),
@@ -70,7 +70,7 @@ const mockEmployees = [
         "city": "Medina",
         "state": "Ohio",
         "zip": "44256",
-        "hired": new Date()
+        "hireDate": new Date()
     },
     {
         "id": eGuid(),
@@ -82,7 +82,7 @@ const mockEmployees = [
         "city": "Medina",
         "state": "Ohio",
         "zip": "44256",
-        "hired": new Date()
+        "hireDate": new Date()
     }
 ]
 export default {

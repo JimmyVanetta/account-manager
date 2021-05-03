@@ -7,7 +7,7 @@ const state = () => ({
 
 const getters = {
     getCurrentEmployees: state => id => {
-        return state.employees.find(employee => employee.accountId === id)
+        return state.employees.filter(employee => employee.accountId === id)
     },
     getEmployeeById: state => id => {
         return state.employees.find(employee => employee.id === id)
@@ -47,8 +47,7 @@ const mutations = {
     },
     REMOVE_EMPLOYEE(state, employee) {
         var employees = state.employees
-        employee.isObsolete = true
-        employees.splice(employees.indexOf(employee), 0)
+        employees.splice(employees.indexOf(employee), 1)
         state.employees = employees
     }
 }

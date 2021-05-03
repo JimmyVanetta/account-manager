@@ -6,7 +6,7 @@
                     <th class="border border-gray-400 px-4 py-2">Account</th>
                     <th class="border border-gray-400 px-4 py-2">Created</th>
                     <th class="border border-gray-400 px-4 py-2">Verified</th>
-                    <th class="border border-gray-400 px-4 py-2">Actions</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -27,6 +27,7 @@
                 </tr>
             </tbody>
         </table>
+        <button class="bg-gray-300 hover:bg-gray-400 text-black font-bold py-2 px-4 border border-black rounded" type="button" @click="goBack">Back</button>
     </div>
 </template>
 
@@ -43,9 +44,11 @@
         created () {                
         },
         mounted () {
-
         },
         methods: {
+            goBack() {
+                this.$router.back()
+            }
         },
         computed: {
             ...mapGetters({

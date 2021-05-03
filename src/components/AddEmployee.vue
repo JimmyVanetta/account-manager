@@ -80,6 +80,7 @@ import {mapActions} from 'vuex'
             ]),
             add() {
                 let employee = {
+                    accountId: this.$route.params.accountId,
                     name: document.getElementById('name').value,
                     age: document.getElementById('age').value,
                     phone: document.getElementById('phone').value,
@@ -91,6 +92,7 @@ import {mapActions} from 'vuex'
                 }
                 this.employee = employee
                 this.$store.dispatch('employees/addEmployee', this.employee)
+                this.$router.back()
             },
             cancel() {
                 this.$router.back()
