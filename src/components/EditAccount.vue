@@ -9,14 +9,14 @@
                     >
                 </div>
             </div>
-            <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 border border-blue-700 rounded" type="button" @click="edit">Submit</button>
-            <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 border border-black rounded" type="button" @click="cancel">Cancel</button>
+            <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 border border-black rounded-l" type="button" @click="edit">Submit</button>
+            <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 border border-black rounded-r" type="button" @click="cancel">Cancel</button>
         </form>
     </div>
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex'
+    import { mapActions, mapGetters } from 'vuex'
     
     export default {
         name: 'EditAccount',
@@ -48,7 +48,7 @@ import { mapActions, mapGetters } from 'vuex'
         },
         methods: {
             ...mapActions([
-                'editAccount'
+                'accounts/editAccount'
             ]),
             edit() {
                 let account = this.selectedAccount
@@ -61,7 +61,7 @@ import { mapActions, mapGetters } from 'vuex'
                 account.state = document.getElementById('state').value,
                 account.zip = document.getElementById('zip').value,
                 
-                this.$store.dispatch('editAccount', account)
+                this.$store.dispatch('accounts/editAccount', account)
                 this.$router.back()
             },
             cancel() {

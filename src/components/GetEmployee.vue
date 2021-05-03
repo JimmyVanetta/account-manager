@@ -10,6 +10,7 @@
                 <router-link :to="{ name: 'EditEmployee', params: { employeeId: this.selectedEmployee.id } }" class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 border border-black" type="button">
                     Edit
                 </router-link>
+                <button class="bg-gray-300 hover:bg-gray-400 text-black font-bold py-2 px-4 border border-black rounded-r" type="button" @click="goBack">Back</button>
             </div>
         </div>
     </div>
@@ -54,6 +55,9 @@
             ]),
             remove() {
                 this.$store.dispatch('employees/removeEmployee', this.selectedEmployee)
+                this.$router.back()
+            },
+            goBack () {
                 this.$router.back()
             }
         },
