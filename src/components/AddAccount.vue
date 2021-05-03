@@ -1,59 +1,11 @@
 <template>
     <div id="add-account" class="">
         <form class="w-full max-x-sm">
-            <div class="md:flex md:items-center mb-6">
+            <div v-for="(item, index) in account" :key="index" class="md:flex md:items-center mb-6">
                 <div class="md:w-1/3">
-                    <input id="name-input" 
+                    <input :id="index"
                         class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
-                        placeholder="Name"
-                    >
-                </div>
-            </div>
-            <div class="md:flex md:items-center mb-6">
-                <div class="md:w-1/3">
-                    <input id="contact-input" 
-                        class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
-                        placeholder="Contact"
-                    >
-                </div>
-            </div>
-            <div class="md:flex md:items-center mb-6">
-                <div class="md:w-1/3">
-                    <input id="phone-input" 
-                        class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
-                        placeholder="Phone"
-                    >
-                </div>
-            </div>
-            <div class="md:flex md:items-center mb-6">
-                <div class="md:w-1/3">
-                    <input id="address-input" 
-                        class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
-                        placeholder="Address"
-                    >
-                </div>
-            </div>
-            <div class="md:flex md:items-center mb-6">
-                <div class="md:w-1/3">
-                    <input id="city-input" 
-                        class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
-                        placeholder="City"
-                    >
-                </div>
-            </div>
-            <div class="md:flex md:items-center mb-6">
-                <div class="md:w-1/3">
-                    <input id="state-input" 
-                        class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
-                        placeholder="State"
-                    >
-                </div>
-            </div>
-            <div class="md:flex md:items-center mb-6">
-                <div class="md:w-1/3">
-                    <input id="zip-input" 
-                        class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
-                        placeholder="Zip"
+                        :placeholder="index"
                     >
                 </div>
             </div>
@@ -71,29 +23,37 @@ import {mapActions} from 'vuex'
 
         data: () => {
             return {
-                account: {}
+                account: {
+                    name: null,
+                    contact: null,
+                    phone: null,
+                    address: null,
+                    city: null,
+                    state: null,
+                    zip: null,
+                }
             }
         },
         methods: {
             ...mapActions([
-                'addAccount'
+                'accounts/addAccount'
             ]),
             add() {
                 if (checkForEmpty() != true) {
                     let account = {
-                        name: document.getElementById('name-input').value,
-                        contact: document.getElementById('contact-input').value,
-                        phone: document.getElementById('phone-input').value,
-                        address: document.getElementById('address-input').value,
-                        city: document.getElementById('city-input').value,
-                        state: document.getElementById('state-input').value,
-                        zip: document.getElementById('zip-input').value,
+                        name: document.getElementById('name').value,
+                        contact: document.getElementById('contact').value,
+                        phone: document.getElementById('phone').value,
+                        address: document.getElementById('address').value,
+                        city: document.getElementById('city').value,
+                        state: document.getElementById('state').value,
+                        zip: document.getElementById('zip').value,
                         created: new Date(), 
                         verified: false,
                         isObsolete: false
                     }
                     this.account = account
-                    this.$store.dispatch('accountStore/addAccount', this.account)
+                    this.$store.dispatch('accounts/addAccount', this.account)
                     this.$router.push({ name: 'CurrentAccounts' })
                 }
             },
@@ -109,13 +69,13 @@ import {mapActions} from 'vuex'
         return array.includes("")
     }
     function getFormValues() {
-        var nam = document.getElementById("name-input").value
-        var con = document.getElementById('contact-input').value
-        var pho = document.getElementById('phone-input').value
-        var adr = document.getElementById('address-input').value
-        var cit = document.getElementById('city-input').value
-        var sta = document.getElementById('state-input').value
-        var zip = document.getElementById('zip-input').value
+        var nam = document.getElementById('name').value
+        var con = document.getElementById('contact').value
+        var pho = document.getElementById('phone').value
+        var adr = document.getElementById('address').value
+        var cit = document.getElementById('city').value
+        var sta = document.getElementById('state').value
+        var zip = document.getElementById('zip').value
 
         return [ nam, con, pho, adr, cit, sta, zip ]
     }

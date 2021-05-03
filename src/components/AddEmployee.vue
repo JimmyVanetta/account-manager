@@ -1,59 +1,11 @@
 <template>
     <div id="add-employee" class="">
         <form class="w-full max-x-sm">
-            <div class="md:flex md:items-center mb-6">
+            <div v-for="(item, index) in employee" :key="index" class="md:flex md:items-center mb-6">
                 <div class="md:w-1/3">
-                    <input id="name" 
+                    <input :id="index"
                         class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
-                        placeholder="Name"
-                    >
-                </div>
-            </div>
-            <div class="md:flex md:items-center mb-6">
-                <div class="md:w-1/3">
-                    <input id="age" 
-                        class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
-                        placeholder="Age"
-                    >
-                </div>
-            </div>
-            <div class="md:flex md:items-center mb-6">
-                <div class="md:w-1/3">
-                    <input id="phone" 
-                        class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
-                        placeholder="Phone"
-                    >
-                </div>
-            </div>
-            <div class="md:flex md:items-center mb-6">
-                <div class="md:w-1/3">
-                    <input id="address" 
-                        class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
-                        placeholder="Address"
-                    >
-                </div>
-            </div>
-            <div class="md:flex md:items-center mb-6">
-                <div class="md:w-1/3">
-                    <input id="city" 
-                        class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
-                        placeholder="City"
-                    >
-                </div>
-            </div>
-            <div class="md:flex md:items-center mb-6">
-                <div class="md:w-1/3">
-                    <input id="state" 
-                        class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
-                        placeholder="State"
-                    >
-                </div>
-            </div>
-            <div class="md:flex md:items-center mb-6">
-                <div class="md:w-1/3">
-                    <input id="zip" 
-                        class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
-                        placeholder="Zip"
+                        :placeholder="index"
                     >
                 </div>
             </div>
@@ -71,7 +23,15 @@ import {mapActions} from 'vuex'
 
         data: () => {
             return {
-                employee: {}
+                employee: {
+                    name: null,
+                    age: null,
+                    phone: null, 
+                    address: null,
+                    city: null,
+                    state: null,
+                    zip: null
+                }
             }
         },
         methods: {
