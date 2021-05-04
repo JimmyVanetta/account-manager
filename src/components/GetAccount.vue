@@ -79,5 +79,5 @@ import { mapActions, mapGetters } from 'vuex'
 </script>
 
 <style scoped>
-
+    
 </style>
