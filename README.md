@@ -1,3 +1,5 @@
+## Account-Manager 'Atomic Branch'
+
 This branch is being rebuilt following atomic design pattern. Full styling using tailwindcss will also be implemented.
 
 Unit testing using vue js will be implemented as well.
