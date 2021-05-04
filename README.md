@@ -1,4 +1,6 @@
-# rate-demo
+## Account-Manager
+
+Minumum viable product, strictly functional with minimal styling.
 
 ## Project setup
 ```
