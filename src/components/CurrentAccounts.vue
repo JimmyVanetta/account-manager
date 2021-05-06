@@ -1,6 +1,6 @@
 <template>
-    <div id="current-accounts" class="">
-        <table id="accounts-table" class="table-auto border-collapse border-2 border-gray-500">
+    <div id="current-accounts" class="m-auto">
+        <table id="accounts-table" class="table-auto border-collapse border-2 border-gray-500 m-auto">
             <thead>
                 <tr>
                     <th class="border border-gray-400 px-4 py-2">Account</th>

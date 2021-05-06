@@ -60,7 +60,7 @@
   ],
   "main": "index.js",
   "license": "MIT",
-  "repository": "https://github.com/JimmyVanetta/client-app.git",
+  "repository": "https://github.com/JimmyVanetta/account-manager.git",
   "author": "JimmyVanetta <j_vanetta@zoominternet.net>",
   "description": "simple crud app for one to many/many to one data relationship"
 }

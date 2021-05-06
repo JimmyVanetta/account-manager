@@ -1,15 +1,13 @@
 <template>
-  <div id="app" class="">
-    <img class="" src="./assets/logo.png" />
-    <ul class="flex content-center">
-      <li class="mr-6">
-        <router-link :to="{ name: 'Landing' }" class="text-blue-500 hover:text-blue-800">Home</router-link>
+  <div id="app" class="m-auto">
+    <img class="m-auto" src="./assets/logo.png" />
+    <p class="text-5x1">Welcome to Account-Manager!</p>
+    <ul class="m-auto flex justify-center">
+      <li class="inline m-auto">
+        <router-link :to="{ name: 'CurrentAccounts' }" class="text-blue-500 hover:text-blue-800">Home</router-link>
       </li>
-      <li class="mr-6">
+      <li class="inline m-auto">
         <router-link :to="{ name: 'AddAccount' }" class="text-blue-500 hover:text-blue-800">Add Accounts</router-link>
-      </li>
-      <li class="mr-6">
-        <router-link :to="{ name: 'CurrentAccounts' }" class="text-blue-500 hover:text-blue-800">View Accounts</router-link>
       </li>
     </ul>
     <router-view></router-view>
@@ -22,8 +20,6 @@ import { mapActions, mapGetters } from 'vuex'
   export default {
     name: 'App',
 
-    data: () => {
-    },
     mounted () {
     },
     async created() {

@@ -1,4 +1,3 @@
-import Landing from '../components/Landing.vue'
 import AddAccount from '../components/AddAccount.vue'
 import CurrentAccounts from '../components/CurrentAccounts.vue'
 import GetAccount from '../components/GetAccount.vue'
@@ -11,11 +10,6 @@ import EditEmployee from '../components/EditEmployee.vue'
 export const routes = [
     { 
         path: '/', 
-        component: Landing,
-        name: 'Landing' 
-    },
-    { 
-        path: '/accounts', 
         component: CurrentAccounts,
         name: 'CurrentAccounts' 
     },
