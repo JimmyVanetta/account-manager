@@ -1,13 +1,13 @@
 <template>
   <div id="app" class="bg-gray-200 h-screen">
     <div class="bg-white h-screen">
-      <!-- flex container -->
       <div class="flex h-full">
         <div class="bg-gray-200 w-full flex-row items-start justify-center">
           <!-- top flex row -->
           <div class="h-18 py-2 w-full whitespace-no-wrap leading-none bg-white shadow-md md:p-3 flex justify-between items-center">
             <img class="mx-5 w-24" src="./assets/logo.png" alt="V">
           </div>
+          <!-- views render in this div -->
           <div class="flex" style="height: 91vh; overflow-y: auto">
             <!-- side flex column -->
             <div class="flex px-2 py-3 pb-4 w-48 bg-white shadow flex-col justify-between items-center h-full">

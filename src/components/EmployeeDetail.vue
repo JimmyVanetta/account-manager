@@ -1,5 +1,5 @@
 <template>
-    <div id="get-employee" class="block">
+    <div id="get-employee" class="m-auto">
         <div class="rounded bg-white shadow max-w-md mx-auto block mt-5 mb-5">
             <div v-for="(item, index) in this.eEmployee" :key="index" class="block mt-2">
                 <label :for="index" class="font-bold">{{index}}</label>
@@ -20,7 +20,7 @@
     import { mapActions, mapGetters } from 'vuex'
 
     export default {
-        name: 'GetEmployee',
+        name: 'EmployeeDetail',
 
         data: () => {
             return {
