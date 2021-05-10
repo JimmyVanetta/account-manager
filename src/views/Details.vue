@@ -1,11 +1,13 @@
 <template>
     <div id="details" class="m-auto inline">
         <AccountDetail :eAccount="this.eAccount" :account="this.selectedAccount" :accountId="this.accountId"></AccountDetail>
+        <EmployeesTable :employees="this.currentEmployees"></EmployeesTable>
     </div>
 </template>
 
 <script>
 import AccountDetail from '../components/forms/AccountDetail'
+import EmployeesTable from '../components/tables/EmployeesTable'
 import { mapGetters } from 'vuex'
 
     export default {
@@ -14,12 +16,14 @@ import { mapGetters } from 'vuex'
         props: ['accountId'],
 
         components: {
-            AccountDetail
+            AccountDetail,
+            EmployeesTable
         },
         data: () => {
             return {
+                eAccount: {},
                 selectedAccount: {},
-                eAccount: {}
+                currentEmployees: []
             }
         },
         created() {
@@ -38,27 +42,20 @@ import { mapGetters } from 'vuex'
                         created: selectedAccount.created
                     }
                 }
+                let currentEmployees = this['employees/getCurrentEmployees'](this.$route.params.accountId)
+                if (currentEmployees) {
+                    this.currentEmployees = currentEmployees
+                }
             }
         },
         mounted () {
         },
         methods:{
-            // ...mapActions([
-            //     'accounts/verifyAccount',
-            //     'accounts/removeAccount'
-            // ]),
-            // removeAccount() {
-            //     this.$store.dispatch('accounts/removeAccount', this.selectedAccount)
-            //     this.$router.back()
-            // },
-            // verifyAccount() {
-            //     this.$store.dispatch('accounts/verifyAccount', this.selectedAccount)
-            //     this.$router.back()
-            // },
         },
         computed: {
             ...mapGetters([
-                'accounts/getAccountById'
+                'accounts/getAccountById',
+                'employees/getCurrentEmployees'
             ]),
         }
     }

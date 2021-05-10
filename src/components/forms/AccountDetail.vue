@@ -27,7 +27,7 @@
                 'accounts/verifyAccount',
                 'accounts/removeAccount'
             ]),
-            remove: function() {
+            remove() {
                 this.$store.dispatch('accounts/removeAccount', this.account)
                 this.$router.back()
             },
