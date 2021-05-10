@@ -1,15 +1,16 @@
-import CurrentAccounts from '../views/CurrentAccounts.vue'
+import Accounts from '../views/Accounts.vue'
 import Details from '../views/Details.vue'
 
 export const routes = [
     { 
         path: '/', 
-        component: CurrentAccounts,
-        name: 'CurrentAccounts' 
+        component: Accounts,
+        name: 'Accounts' 
     },
     {
         path: '/details',
         component: Details,
         name: 'Details',
+        props: true
     },
 ]

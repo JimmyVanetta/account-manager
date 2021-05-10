@@ -35,7 +35,7 @@
     import { mapGetters } from 'vuex'
     
     export default {
-        name: "CurrentEmployees",
+        name: "EmployeesTable",
         
         data: () => {
             return {

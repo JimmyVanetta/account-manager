@@ -1,27 +1,20 @@
 <template>
     <div id="details" class="m-auto inline">
-        <div class="rounded bg-white shadow max-w-md mx-auto block mt-5 mb-5">
-            <div v-for="(item, index) in this.eAccount" :key="index" class="block mt-2">
-                <label :for="index" class="font-bold">{{index}}</label>
-                <p :id="index">{{item}}</p>
-            </div>
-            <AccountButtons v-bind:account="this.selectedAccount"></AccountButtons>
-        </div>
-        <!-- <EmployeeButtons v-bind:accountId="this.selectedAccount.id"></EmployeeButtons> -->
+        <AccountDetail :eAccount="this.eAccount" :account="this.selectedAccount" :accountId="this.accountId"></AccountDetail>
     </div>
 </template>
 
 <script>
-import AccountButtons from '../components/buttons/AcctActionBtns'
-// import EmployeeButtons from '../components/buttons/EmpActionBtns'
+import AccountDetail from '../components/forms/AccountDetail'
 import { mapGetters } from 'vuex'
 
     export default {
         name: 'Details',
         
+        props: ['accountId'],
+
         components: {
-            AccountButtons,
-            // EmployeeButtons
+            AccountDetail
         },
         data: () => {
             return {
@@ -30,8 +23,8 @@ import { mapGetters } from 'vuex'
             }
         },
         created() {
-            if ('accountId' in this.$route.params) {
-                let selectedAccount = this['accounts/getAccountById'](this.$route.params.accountId)
+            if (this.accountId) {
+                let selectedAccount = this['accounts/getAccountById'](this.accountId)
                 if (selectedAccount) {
                     this.selectedAccount = selectedAccount
                     this.eAccount = {
@@ -50,7 +43,18 @@ import { mapGetters } from 'vuex'
         mounted () {
         },
         methods:{
-
+            // ...mapActions([
+            //     'accounts/verifyAccount',
+            //     'accounts/removeAccount'
+            // ]),
+            // removeAccount() {
+            //     this.$store.dispatch('accounts/removeAccount', this.selectedAccount)
+            //     this.$router.back()
+            // },
+            // verifyAccount() {
+            //     this.$store.dispatch('accounts/verifyAccount', this.selectedAccount)
+            //     this.$router.back()
+            // },
         },
         computed: {
             ...mapGetters([
