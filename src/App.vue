@@ -23,7 +23,7 @@
 
 <script>
 import SideButtons from './components/buttons/SideNavBtns'
-import { mapActions, mapGetters } from 'vuex'
+import { mapActions} from 'vuex'
 
   export default {
     name: 'App',
@@ -34,6 +34,7 @@ import { mapActions, mapGetters } from 'vuex'
     mounted () {
     },
     async created() {
+      // API Call
       this.$store.dispatch("accounts/getAccounts")
       this.$store.dispatch("employees/getEmployees")
     },
@@ -44,8 +45,6 @@ import { mapActions, mapGetters } from 'vuex'
       ]),
     },
     computed: {
-      ...mapGetters([
-      ]),
     }
   }
 </script>

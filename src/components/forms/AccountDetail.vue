@@ -1,10 +1,10 @@
 <template>
-    <div class="rounded bg-white shadow max-w-md mx-auto block mt-5 mb-5">
+    <div class="rounded bg-white shadow max-w-md mx-auto  inline-block">
         <div v-for="(item, index) in this.eAccount" :key="index" class="block mt-2">
             <label :for="index" class="font-bold">{{index}}</label>
             <p :id="index">{{item}}</p>
         </div>
-        <AccountButtons v-bind:account="this.account" :remove="remove" :verify="verify"></AccountButtons>
+        <AccountButtons :accountId="this.account.id" :remove="remove" :verify="verify"></AccountButtons>
     </div>
 </template>
 
@@ -36,6 +36,7 @@
                 this.$router.back()
             }
         }
+        
     }
 </script>
 

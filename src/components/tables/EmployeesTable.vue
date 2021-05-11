@@ -1,5 +1,5 @@
 <template>
-    <div id="current-employees">
+    <div id="current-employees" class="inline-block m-auto">
         <table id="employees-table" class="table-auto border-collapse border-2 border-gray-500">
             <thead>
                 <tr>

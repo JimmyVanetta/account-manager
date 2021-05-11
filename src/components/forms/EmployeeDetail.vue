@@ -5,13 +5,6 @@
                 <label :for="index" class="font-bold">{{index}}</label>
                 <p :id="index">{{item}}</p>
             </div>
-            <!-- <div class="inline-flex mt-5 mb-5">
-                <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 border border-black rounded-l" @click="remove" type="button">Delete</button>
-                <router-link :to="{ name: 'EditEmployee', params: { employeeId: this.selectedEmployee.id } }" class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 border border-black" type="button">
-                    Edit
-                </router-link>
-                <button class="bg-gray-300 hover:bg-gray-400 text-black font-bold py-2 px-4 border border-black rounded-r" type="button" @click="goBack">Back</button>
-            </div> -->
             <EmployeeButtons></EmployeeButtons>
         </div>
     </div>

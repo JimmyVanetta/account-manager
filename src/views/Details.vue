@@ -1,6 +1,6 @@
 <template>
-    <div id="details" class="m-auto inline">
-        <AccountDetail :eAccount="this.eAccount" :account="this.selectedAccount" :accountId="this.accountId"></AccountDetail>
+    <div id="details" class="m-auto inline-block">
+        <AccountDetail :eAccount="this.eAccount" :account="this.selectedAccount"></AccountDetail>
         <EmployeesTable :employees="this.currentEmployees"></EmployeesTable>
     </div>
 </template>
@@ -42,7 +42,7 @@ import { mapGetters } from 'vuex'
                         created: selectedAccount.created
                     }
                 }
-                let currentEmployees = this['employees/getCurrentEmployees'](this.$route.params.accountId)
+                let currentEmployees = this['employees/getCurrentEmployees'](this.accountId)
                 if (currentEmployees) {
                     this.currentEmployees = currentEmployees
                 }
