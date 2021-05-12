@@ -5,16 +5,28 @@
             Edit
         </router-link>
         <button class="bg-gray-300 hover:bg-gray-400 text-black font-bold py-2 px-4 border border-black rounded-r" type="button" @click="this.goBack">Back</button>
+        <!-- <DeleteBtn></DeleteBtn> -->
+        <!-- <EditBtn></EditBtn> -->
+        <!-- <VerifyBtn></VerifyBtn> -->
     </div>
 </template>
 
 <script>
+    // import DeleteBtn from '../buttons/DeleteBtn'
+    // import EditBtn from '../buttons/EditBtn'
+    // import VerifyBtn from '../buttons/VerifyBtn'
+
     export default {
         props: [
             'accountId',
             'remove', 
             'goBack'
-        ]
+        ],
+        components: {
+            // DeleteBtn,
+            // EditBtn,
+            // VerifyBtn
+        } 
     }
 </script>
 

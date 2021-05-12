@@ -4,16 +4,14 @@ import api from '../../api/api.js'
 const state = () => ({
     employees: []
 })
-
 const getters = {
-    getCurrentEmployees: state => id => {
+    getEmployeesByAccountId: state => id => {
         return state.employees.filter(employee => employee.accountId === id)
     },
     getEmployeeById: state => id => {
         return state.employees.find(employee => employee.id === id)
     },
 }
-
 const actions = {
     getEmployees ({commit}) {
         api.getAllEmployees(employees => {
@@ -30,7 +28,6 @@ const actions = {
         commit('REMOVE_EMPLOYEE', employee)
     }
 }
-
 const mutations = {
     SET_EMPLOYEES(state, employees) {
         state.employees = employees
@@ -51,7 +48,6 @@ const mutations = {
         state.employees = employees
     }
 }
-
 export default {
     namespaced: true,
     state,

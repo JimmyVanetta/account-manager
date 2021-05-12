@@ -42,7 +42,7 @@ import { mapGetters } from 'vuex'
                         created: selectedAccount.created
                     }
                 }
-                let currentEmployees = this['employees/getCurrentEmployees'](this.accountId)
+                let currentEmployees = this['employees/getEmployeesByAccountId'](this.accountId)
                 if (currentEmployees) {
                     this.currentEmployees = currentEmployees
                 }
@@ -55,7 +55,7 @@ import { mapGetters } from 'vuex'
         computed: {
             ...mapGetters([
                 'accounts/getAccountById',
-                'employees/getCurrentEmployees'
+                'employees/getEmployeesByAccountId'
             ]),
         }
     }

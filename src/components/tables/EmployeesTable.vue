@@ -11,9 +11,9 @@
             </thead>
             <tbody>
                 <tr v-for="(employee, index) in this.currentEmployees" :key="index">
-                    <td class="border border-black px-4 py-2">{{employee.name}}</td>
-                    <td class="border border-black px-4 py-2">{{employee.phone}}</td>
-                    <td class="border border-black px-4 py-2">{{employee.hireDate}}</td>
+                    <td class="border border-black px-4 py-2">{{ employee.name }}</td>
+                    <td class="border border-black px-4 py-2">{{ employee.phone }}</td>
+                    <td class="border border-black px-4 py-2">{{ employee.hireDate }}</td>
                     <td class="border border-black px-4 py-2">
                         <div class="inline-flex">
                             <router-link :to="{ name: 'GetEmployee', params: { employeeId: employee.id } }" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-l" type="button">
@@ -43,7 +43,7 @@
         },
         created () {
             if ('accountId' in this.$route.params) {
-                let currentEmployees = this['employees/getCurrentEmployees'](this.$route.params.accountId)
+                let currentEmployees = this['employees/getEmployeesByAccountId'](this.$route.params.accountId)
                 if (currentEmployees) {
                     this.currentEmployees = currentEmployees
                 }
@@ -58,7 +58,7 @@
         },
         computed: {
             ...mapGetters([
-                'employees/getCurrentEmployees'
+                'employees/getEmployeesByAccountId'
             ]),
         }
     }

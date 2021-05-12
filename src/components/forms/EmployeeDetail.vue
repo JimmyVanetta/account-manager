@@ -1,24 +1,27 @@
 <template>
-    <div id="get-employee" class="m-auto">
-        <div class="rounded bg-white shadow max-w-md mx-auto block mt-5 mb-5">
-            <div v-for="(item, index) in this.eEmployee" :key="index" class="block mt-2">
-                <label :for="index" class="font-bold">{{index}}</label>
-                <p :id="index">{{item}}</p>
-            </div>
-            <EmployeeButtons></EmployeeButtons>
+    <div id="get-employee" class="rounded bg-white shadow max-w-md mx-auto inline-block">
+        <div v-for="(item, index) in this.eEmployee" :key="index" class="block mt-2">
+            <FormText 
+                :item="item" 
+                :index="index"
+            >
+            </FormText>
         </div>
+        <EmployeeButtons></EmployeeButtons>
     </div>
 </template>
 
 <script>
+    import EmployeeButtons from '../buttongroups/EmpActionBtns'
+    import FormText from '../fields/FormText'
     import { mapActions, mapGetters } from 'vuex'
-    import { EmployeeButtons } from '../buttongroups/EmpActionBtns'
 
     export default {
         name: 'EmployeeDetail',
 
         components: {
-            EmployeeButtons
+            EmployeeButtons,
+            FormText
         },
         data: () => {
             return {

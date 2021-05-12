@@ -1,14 +1,23 @@
 <template>
-    <div class="rounded bg-white shadow max-w-md mx-auto  inline-block">
+    <div class="rounded bg-white shadow max-w-md mx-auto inline-block">
         <div v-for="(item, index) in this.eAccount" :key="index" class="block mt-2">
-            <label :for="index" class="font-bold">{{index}}</label>
-            <p :id="index">{{item}}</p>
+            <FormText 
+                :item="item" 
+                :index="index"
+            >
+            </FormText>
         </div>
-        <AccountButtons :accountId="this.account.id" :remove="remove" :verify="verify"></AccountButtons>
+        <AccountButtons 
+            :accountId="this.account.id" 
+            :remove="remove" 
+            :verify="verify"
+        >
+        </AccountButtons>
     </div>
 </template>
 
 <script>
+    import FormText from '../fields/FormText'
     import AccountButtons from '../buttongroups/AcctActionBtns'
     import { mapActions } from 'vuex'
 
@@ -20,7 +29,8 @@
             'eAccount'
         ],
         components: {
-            AccountButtons
+            AccountButtons,
+            FormText
         },
         methods: {
             ...mapActions([

@@ -4,18 +4,12 @@ import api from '../../api/api.js'
 const state = () => ({
     accounts: []
 })
-
 const getters = {
+    getAccountById: state => id => state.accounts.find(account => account.id === id),
     getCurrentAccounts: state => state.accounts.filter(account => !account.isObsolete),
-    //
-    getAccountById: state => id => {
-        return state.accounts.find(account => account.id === id)
-    },
-    //
     getVerifiedAccounts: state => state.accounts.filter(account => account.verified),
     getObsoleteAccounts: state => state.accounts.filter(account => account.isObsolete)
 }
-
 const actions = {
     getAccounts ({commit}) {
         api.getAllAccounts(accounts => {
@@ -35,7 +29,6 @@ const actions = {
         commit('VERIFY_ACCOUNT', account)
      },
 }
-
 const mutations = {
     SET_ACCOUNTS (state, accounts) {
         state.accounts = accounts
@@ -63,7 +56,6 @@ const mutations = {
         state.accounts = accounts
      },
 }
-
 export default {
     namespaced: true,
     state,
