@@ -1,5 +1,5 @@
 <template>
-    <div id="accounts-table" class="m-auto">
+    <div id="accounts-table" class="mx-3 mt-3 flex-no-wrap w-full">
         <table id="accounts-table" class="table-auto border-collapse border-2 border-black m-auto shadow-lg">
             <thead>
                 <tr class="text-xl">
@@ -15,7 +15,11 @@
                     <td class="border border-black px-4 py-2">{{account.created}}</td>
                     <td class="border border-black px-4 py-2">{{account.verified ? "Y" : "N" }}</td>
                     <td class="border border-black px-4 py-2">
-                        <TableButtons ref="TableButtons" :account="account" :remove="remove"></TableButtons>
+                        <TableButtons 
+                            :account="account" 
+                            :remove="remove"
+                        >
+                        </TableButtons>
                     </td>
                 </tr>
             </tbody>
