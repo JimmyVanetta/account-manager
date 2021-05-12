@@ -9,7 +9,7 @@
 </template>
 
 <script>
-    import AccountButtons from '../buttons/AcctActionBtns'
+    import AccountButtons from '../buttongroups/AcctActionBtns'
     import { mapActions } from 'vuex'
 
     export default {

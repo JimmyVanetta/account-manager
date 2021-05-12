@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import SideButtons from './components/buttons/SideNavBtns'
+import SideButtons from './components/buttongroups/SideNavBtns'
 import { mapActions} from 'vuex'
 
   export default {

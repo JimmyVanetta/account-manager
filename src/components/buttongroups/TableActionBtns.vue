@@ -16,7 +16,7 @@
     export default {
         props: [
             'account',
-            'remove'
+            'remove',
         ],
         methods: {
             removeAcct() {

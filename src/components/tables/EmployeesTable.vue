@@ -3,18 +3,18 @@
         <table id="employees-table" class="table-auto border-collapse border-2 border-gray-500">
             <thead>
                 <tr>
-                    <th class="border border-gray-400 px-4 py-2">Name</th>
-                    <th class="border border-gray-400 px-4 py-2">Phone</th>
-                    <th class="border border-gray-400 px-4 py-2">Hire Date</th>
+                    <th class="border border-black px-4 py-2">Name</th>
+                    <th class="border border-black px-4 py-2">Phone</th>
+                    <th class="border border-black px-4 py-2">Hire Date</th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
                 <tr v-for="(employee, index) in this.currentEmployees" :key="index">
-                    <td class="border border-gray-400 px-4 py-2">{{employee.name}}</td>
-                    <td class="border border-gray-400 px-4 py-2">{{employee.phone}}</td>
-                    <td class="border border-gray-400 px-4 py-2">{{employee.hireDate}}</td>
-                    <td class="border border-gray-400 px-4 py-2">
+                    <td class="border border-black px-4 py-2">{{employee.name}}</td>
+                    <td class="border border-black px-4 py-2">{{employee.phone}}</td>
+                    <td class="border border-black px-4 py-2">{{employee.hireDate}}</td>
+                    <td class="border border-black px-4 py-2">
                         <div class="inline-flex">
                             <router-link :to="{ name: 'GetEmployee', params: { employeeId: employee.id } }" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-l" type="button">
                                 Details
@@ -27,7 +27,6 @@
                 </tr>
             </tbody>
         </table>
-        <button class="bg-gray-300 hover:bg-gray-400 text-black font-bold py-2 px-4 border border-black rounded" type="button" @click="goBack">Back</button>
     </div>
 </template>
 

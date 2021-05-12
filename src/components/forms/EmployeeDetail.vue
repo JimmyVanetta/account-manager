@@ -12,7 +12,7 @@
 
 <script>
     import { mapActions, mapGetters } from 'vuex'
-    import { EmployeeButtons } from '../buttons/EmpActionBtns'
+    import { EmployeeButtons } from '../buttongroups/EmpActionBtns'
 
     export default {
         name: 'EmployeeDetail',

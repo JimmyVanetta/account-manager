@@ -24,7 +24,7 @@
 </template>
 
 <script>
-    import TableButtons from '../buttons/TableActionBtns'
+    import TableButtons from '../buttongroups/TableActionBtns'
     import { mapActions } from 'vuex'
 
     export default {
