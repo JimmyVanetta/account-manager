@@ -8,7 +8,7 @@
             <img class="mx-5 w-24" src="./assets/logo.png" alt="V">
           </div>
           <!-- views render in this div -->
-          <div class="flex" style="height: 91vh; overflow-y: auto">
+          <div class="flex w-max" style="height: 91vh; overflow-y: auto">
             <!-- side flex column -->
             <div class="flex px-2 py-3 pb-4 w-48 bg-white shadow flex-col justify-between items-center h-full">
               <SideButtons></SideButtons>

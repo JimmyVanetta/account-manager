@@ -1,58 +1,31 @@
 <template>
-    <div id="accounts-table" class="mx-3 mt-3 flex-no-wrap w-full">
-        <table id="accounts-table" class="table-auto border-collapse border-2 border-black m-auto shadow-lg">
-            <thead>
-                <tr class="text-xl">
-                    <th class="border border-black px-4 py-2">Account</th>
-                    <th class="border border-black px-4 py-2">Created</th>
-                    <th class="border border-black px-4 py-2">Verified</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr v-for="(account, index) in this.accounts" :key="index" class="text-lg">
-                    <td class="border border-black px-4 py-2">{{account.name}}</td>
-                    <td class="border border-black px-4 py-2">{{account.created}}</td>
-                    <td class="border border-black px-4 py-2">{{account.verified ? "Y" : "N" }}</td>
-                    <td class="border border-black px-4 py-2">
-                        <TableButtons 
-                            :account="account" 
-                            :remove="remove"
-                        >
-                        </TableButtons>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+    <div id="accounts" class="mx-3 mt-3 flex-no-wrap w-full">
+        <div class="py-2 p-4 rounded-t flex items-center justify-between bg-green-500 shadow-md border-l border-r border-t border-black">
+            <h1 class="text-white font-bold text-xl">Current Accounts</h1>
+        </div>
+        <div class="max-h-eighty overflow-y-auto">
+            <table id="accounts-table" class="w-full bg-white shadow-md rounded border border-black">
+                <TableHead></TableHead>
+                <TableBody :accounts="this.accounts"></TableBody>
+            </table>
+        </div>
     </div>
 </template>
 
 <script>
-    import TableButtons from '../buttongroups/TableActionBtns'
-    import { mapActions } from 'vuex'
-
+    import TableHead from '../table-pieces/AcctTableHead'
+    import TableBody from '../table-pieces/AcctTableBody'
+    
     export default {
         name: "AccountsTable",
 
         props: ['accounts'],
 
         components: {
-            TableButtons
+            TableHead,
+            TableBody
         },
         created () {                
-
-        },
-        methods: {
-            ...mapActions([
-                'accounts/verifyAccount',
-                'accounts/removeAccount'
-            ]),
-            remove(account) {
-                this.$store.dispatch('accounts/removeAccount', account)
-            },
-            verify(account) {
-                this.$store.dispatch('accounts/verifyAccount', account)
-            }
         },
     }
 </script>

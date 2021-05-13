@@ -1,6 +1,6 @@
 <template>
-    <div id="get-employee" class="rounded bg-white shadow max-w-md mx-auto inline-block">
-        <div v-for="(item, index) in this.eEmployee" :key="index" class="block mt-2">
+    <div id="get-employee" class="flex rounded bg-white shadow max-w-md mx-auto inline-block">
+        <div v-for="(item, index) in this.eEmployee" :key="index" class="block mt-auto">
             <FormText 
                 :item="item" 
                 :index="index"

@@ -1,5 +1,5 @@
 <template>
-    <div id="details" class="m-auto inline-block">
+    <div id="details" class="flex mx-auto">
         <AccountDetail :eAccount="this.eAccount" :account="this.selectedAccount"></AccountDetail>
         <EmployeesTable :employees="this.currentEmployees"></EmployeesTable>
     </div>
@@ -32,7 +32,6 @@ import { mapGetters } from 'vuex'
                 if (selectedAccount) {
                     this.selectedAccount = selectedAccount
                     this.eAccount = {
-                        name: selectedAccount.name,
                         contact: selectedAccount.contact,
                         phone: selectedAccount.phone,
                         address: selectedAccount.address,

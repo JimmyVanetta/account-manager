@@ -1,7 +1,13 @@
 <template>
     <div id="form-text">
-        <label :for="this.index" class="font-bold">{{ this.index }}</label>
-        <p :id="index">{{  this.item  }}</p>
+        <div v-if="this.index != 'created'">
+            <label :for="this.index" class="font-bold">{{ this.index }}</label>
+            <p :id="this.index">{{  this.item  }}</p>
+        </div>
+        <div v-else>
+            <label :for="this.index" class="font-bold">{{ this.index }}</label>
+            <p :id="this.index">{{ this.date }}</p>
+        </div>    
     </div>
 </template>
 
@@ -11,7 +17,8 @@
 
         props: [
             'index',
-            'item'
+            'item',
+            'date'
         ]
     }
 </script>

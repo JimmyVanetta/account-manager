@@ -18,8 +18,12 @@ export const eGuid = function () {
 }
 // format stored date to mm/dd/yyyy
 export const formatDate = function (dateIn) {
-    var yyyy = dateIn.getFullYear();
-    var mm = dateIn.getMonth() + 1; // getMonth() is zero-based
-    var dd = dateIn.getDate();
-    return String(10000 * yyyy + 100 * mm + dd); // Leading zeros for mm and dd
+    var dat = new Date(dateIn)
+    
+    var mm = dat.getMonth() + 1; // getMonth() is zero-based
+    mm = '0' + mm.toString()
+    var dd = dat.getDate();
+    var yyyy = dat.getFullYear();
+
+    return mm + '/' + dd + '/' + yyyy
 }
