@@ -1,6 +1,8 @@
 <template>
     <div id="edit-btn">
-        <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 border border-black rounded-r">Verify</button>
+        <button class="bg-green-500 hover:bg-green-700 text-gray-800 font-bold py-2 px-4 rounded-r" @click="this.verify">
+            <i class="fa fa-check-square"></i>
+        </button>
     </div>
 </template>
 
@@ -8,7 +10,10 @@
     export default {
         name: 'VerifyBtn',
 
-        props: []
+        props: [
+            'id',
+            'verify'
+        ]
     }
 </script>
 

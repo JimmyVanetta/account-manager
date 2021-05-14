@@ -6,9 +6,10 @@
             <td class="border border-black px-4 py-2">{{ account.verified ? "Y" : "N" }}</td>
             <td class="border border-black px-4 py-2">
                 <TableButtons 
-                    :account="account" 
-                    :removeAcct="removeAcct"
-                    :verifyAcct="verifyAcct"
+                    :id="account.id"
+                    :type="'account'" 
+                    :remove="remove"
+                    :verify="verify"
                 >
             </TableButtons>
             </td>
@@ -34,11 +35,11 @@
                 'accounts/verifyAccount',
                 'accounts/removeAccount'
             ]),
-            removeAcct(account) {
-                this.$store.dispatch('accounts/removeAccount', account)
+            remove(accountId) {
+                this.$store.dispatch('accounts/removeAccount', accountId)
             },
-            verifyAcct(account) {
-                this.$store.dispatch('accounts/verifyAccount', account)
+            verify(accountId) {
+                this.$store.dispatch('accounts/verifyAccount', accountId)
             },
             date(dateIn) {
                 return formatDate(dateIn) 

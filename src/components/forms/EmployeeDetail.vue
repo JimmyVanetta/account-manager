@@ -13,7 +13,7 @@
 
 <script>
     import EmployeeButtons from '../buttongroups/EmpActionBtns'
-    import FormText from '../fields/FormText'
+    import FormText from '../form-pieces/FormText'
     import { mapActions, mapGetters } from 'vuex'
 
     export default {

@@ -1,32 +1,23 @@
 <template>
-    <div id="account-detail" class="mx-3 mt-3 flex-no-wrap w-2/5 flex-col">
-            <div class="py-2 p-4 rounded-t flex items-center justify-between bg-green-500 shadow-md border-l border-r border-t border-black">
-                <h1 class="text-white font-bold text-xl">{{ this.account.name }}</h1>
-            </div>
-        <div class="bg-white shadow w-full mx-auto border border-black">
-            <div v-for="(item, index) in this.eAccount" :key="index" class="block mt-2 m-auto ">
-                <FormText 
-                    :item="item" 
-                    :index="index"
-                    :date="date"
-                >
-                </FormText>
-            </div>
-            <AccountButtons 
-                :accountId="this.account.id" 
-                :remove="remove" 
-                :verify="verify"
-            >
-            </AccountButtons>
-        </div>
+    <div id="account-detail" class="flex-no-wrap w-2/5 mt-3 flex-col-2">
+        <FormHeader
+            :name="this.account.name"
+        ></FormHeader>
+        <FormCard
+            :accountId="this.account.id"
+            :account="eAccount"
+            :date="date"
+            :remove="remove"
+            :verify="verify"
+        ></FormCard>
     </div>
 </template>
 
 <script>
-    import FormText from '../fields/FormText'
-    import AccountButtons from '../buttongroups/AcctActionBtns'
-    import { mapActions } from 'vuex'
+    import FormHeader from '../form-pieces/AcctFormHeader'
+    import FormCard from '../form-pieces/AcctFormCard'
     import { formatDate } from '../../utils/utils'
+    import { mapActions } from 'vuex'
 
     export default {
         name: "AccountDetail",
@@ -36,8 +27,8 @@
             'eAccount'
         ],
         components: {
-            AccountButtons,
-            FormText
+            FormHeader,
+            FormCard
         },
         methods: {
             ...mapActions([
@@ -45,11 +36,11 @@
                 'accounts/removeAccount'
             ]),
             remove() {
-                this.$store.dispatch('accounts/removeAccount', this.account)
+                this.$store.dispatch('accounts/removeAccount', this.account.id)
                 this.$router.back()
             },
             verify() {
-                this.$store.dispatch('accounts/verifyAccount', this.account)
+                this.$store.dispatch('accounts/verifyAccount', this.account.id)
                 this.$router.back()
             },
         },

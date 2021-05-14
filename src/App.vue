@@ -2,15 +2,16 @@
   <div id="app" class="bg-gray-200 h-screen">
     <div class="bg-white h-screen">
       <div class="flex h-full">
-        <div class="bg-gray-200 w-full flex-row items-start justify-center">
+        <div id="bg-img" class="bg-gray-200 w-full flex-row items-start justify-center">
           <!-- top flex row -->
-          <div class="h-18 py-2 w-full whitespace-no-wrap leading-none bg-white shadow-md md:p-3 flex justify-between items-center">
-            <img class="mx-5 w-24" src="./assets/logo.png" alt="V">
+          <div class="h-18 py-2 w-full whitespace-no-wrap leading-none bg-green-200 shadow-md md:p-3 justify-between flex items-center">
+            <img id="header-img" class="mx-5 w-24" src="./assets/smugpepe.png" alt="V">
+            <h1 class="text-black font-bold text-5xl m-auto">Account Manager</h1>
           </div>
           <!-- views render in this div -->
           <div class="flex w-max" style="height: 91vh; overflow-y: auto">
             <!-- side flex column -->
-            <div class="flex px-2 py-3 pb-4 w-48 bg-white shadow flex-col justify-between items-center h-full">
+            <div class="flex px-2 py-3 pb-4 w-48 bg-green-100 shadow flex-col justify-between items-center h-full border-t">
               <SideButtons></SideButtons>
             </div>
             <router-view></router-view>
@@ -56,5 +57,12 @@ import { mapActions} from 'vuex'
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+}
+#bg-img {
+  background-image: url("https://trackerbrbdevtest.azurewebsites.net/assets/img/bg-main-25.f362dce4.png");
+  background-repeat: no-repeat;
+}
+#header-img:hover {
+  transform: rotate(20deg);
 }
 </style>

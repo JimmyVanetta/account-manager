@@ -22,8 +22,8 @@ const actions = {
     editAccount({commit}, account) {
         commit('EDIT_ACCOUNT', account)
     },
-    removeAccount({commit}, account) {
-        commit('REMOVE_ACCOUNT', account)
+    removeAccount({commit}, accountId) {
+        commit('REMOVE_ACCOUNT', accountId)
     },
     verifyAccount({commit}, account) {
         commit('VERIFY_ACCOUNT', account)
@@ -43,17 +43,25 @@ const mutations = {
         accounts.splice(accounts.indexOf(account),0)
         state.accounts = accounts
     },
-    REMOVE_ACCOUNT(state, account) {
-        var accounts = state.accounts
-        account.isObsolete = !account.isObsolete
-        accounts.splice(accounts.indexOf(account), 0)
-        state.accounts = accounts
+    REMOVE_ACCOUNT(state, accountId) {
+        var id = accountId
+        var accounts = state.accounts // get array off accounts from state
+        var account = accounts.find(account => account.id === id) // get account from array
+        account.isObsolete = !account.isObsolete // mark obsolete
+        accounts.splice(accounts.indexOf(account), 0) // merge account back in to array
+        state.accounts = accounts // merge updated array back in to state
     },
-     VERIFY_ACCOUNT(state, account) {
-        var accounts = state.accounts 
-        account.verified = !account.verified
-        accounts.splice(accounts.indexOf(account), 0)
-        state.accounts = accounts
+     VERIFY_ACCOUNT(state, accountId) {
+        // var accounts = state.accounts 
+        // account.verified = !account.verified
+        // accounts.splice(accounts.indexOf(account), 0)
+        // state.accounts = accounts
+        var id = accountId
+        var accounts = state.accounts // get array off accounts from state
+        var account = accounts.find(account => account.id === id) // get account from array
+        account.verified = !account.verified // mark verified
+        accounts.splice(accounts.indexOf(account), 0) // merge account back in to array
+        state.accounts = accounts // merge updated array back in to state
      },
 }
 export default {
