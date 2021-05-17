@@ -1,14 +1,14 @@
 <template>
     <div id="acct-buttons" class="inline-flex mt-2 shadow-sm">
-        <DeleteBtn 
-            :remove="remove"
-        ></DeleteBtn>
-        <!--  -->
-        <EditBtn></EditBtn>
-        <!--  -->
         <VerifyBtn
             :verify="verify"
         ></VerifyBtn>
+        <!--  -->
+        <EditBtn></EditBtn>
+        <!--  -->
+        <DeleteBtn 
+            :remove="remove"
+        ></DeleteBtn>
     </div>
 </template>
 

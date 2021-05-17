@@ -45,19 +45,15 @@ const mutations = {
     },
     REMOVE_ACCOUNT(state, accountId) {
         var id = accountId
-        var accounts = state.accounts // get array off accounts from state
+        var accounts = state.accounts // get array of accounts from state
         var account = accounts.find(account => account.id === id) // get account from array
         account.isObsolete = !account.isObsolete // mark obsolete
         accounts.splice(accounts.indexOf(account), 0) // merge account back in to array
         state.accounts = accounts // merge updated array back in to state
     },
      VERIFY_ACCOUNT(state, accountId) {
-        // var accounts = state.accounts 
-        // account.verified = !account.verified
-        // accounts.splice(accounts.indexOf(account), 0)
-        // state.accounts = accounts
         var id = accountId
-        var accounts = state.accounts // get array off accounts from state
+        var accounts = state.accounts // get array of accounts from state
         var account = accounts.find(account => account.id === id) // get account from array
         account.verified = !account.verified // mark verified
         accounts.splice(accounts.indexOf(account), 0) // merge account back in to array

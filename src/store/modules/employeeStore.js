@@ -5,12 +5,8 @@ const state = () => ({
     employees: []
 })
 const getters = {
-    getEmployeesByAccountId: state => id => {
-        return state.employees.filter(employee => employee.accountId === id)
-    },
-    getEmployeeById: state => id => {
-        return state.employees.find(employee => employee.id === id)
-    },
+    getEmployeeById: state => id => state.employees.find(employee => employee.id === id),
+    getEmployeesByAccountId: state => id => state.employees.filter(employee => employee.accountId === id)
 }
 const actions = {
     getEmployees ({commit}) {
@@ -24,8 +20,8 @@ const actions = {
     editEmployee({commit}, employee) {
         commit('EDIT_EMPLOYEE', employee)
     },
-    removeEmployee({commit}, employee) {
-        commit('REMOVE_EMPLOYEE', employee)
+    removeEmployee({commit}, employeeId) {
+        commit('REMOVE_EMPLOYEE', employeeId)
     }
 }
 const mutations = {
@@ -42,10 +38,15 @@ const mutations = {
         employees.splice(employees.indexOf(employee), 0)
         state.employees = employees
     },
-    REMOVE_EMPLOYEE(state, employee) {
-        var employees = state.employees
-        employees.splice(employees.indexOf(employee), 1)
-        state.employees = employees
+    REMOVE_EMPLOYEE(state, employeeId) {
+        // var employees = state.employees
+        // employees.splice(employees.indexOf(employee), 1)
+        // state.employees = employees
+        var id = employeeId
+        var employees = state.employees // get array of employees from state
+        var employee = employees.find(employee => employee.id === id) // get employee from array
+        employees.splice(employees.indexOf(employee), 1) // remove employee from array - ** change to soft delete **
+        state.employees = employees // merge updated array back in to state
     }
 }
 export default {

@@ -1,6 +1,6 @@
 <template>
     <div id="delete-btn">
-        <button class="bg-red-500 hover:bg-red-700 text-gray-800 font-bold py-2 px-4 rounded-l" @click="remove">
+        <button class="bg-red-500 hover:bg-red-600 text-gray-800 font-bold py-2 px-4 rounded-r" @click="remove">
             <i class="fa fa-trash"></i>
         </button>
     </div>

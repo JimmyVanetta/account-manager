@@ -5,16 +5,9 @@
         </div>
         <div class="max-h-eighty overflow-y-auto">
             <table id="employees-table" class="w-full bg-white shadow-md rounded border border-black">
-                <thead>
-                    <tr class="bg-gray-100">
-                        <th class="px-4 py-2">Name</th>
-                        <th class="px-4 py-2">Phone</th>
-                        <th class="px-4 py-2">Hire Date</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr v-for="(employee, index) in this.currentEmployees" :key="index">
+                <TableHead></TableHead>
+                <!-- <tbody>
+                    <tr v-for="(employee, index) in this.employees" :key="index">
                         <td class="border border-black px-4 py-2">{{ employee.name }}</td>
                         <td class="border border-black px-4 py-2">{{ employee.phone }}</td>
                         <td class="border border-black px-4 py-2">{{ displayDate(employee.hireDate) }}</td>
@@ -29,46 +22,35 @@
                             </div>
                         </td>
                     </tr>
-                </tbody>
+                </tbody> -->
+                <TableBody
+                    :employees="this.employees"
+                ></TableBody>
             </table>
         </div>
     </div>
 </template>
 
 <script>
-    import { mapGetters } from 'vuex'
-    import { formatDate } from '../../utils/utils'
+    import TableHead from '../table-pieces/EmpTableHead'
+    import TableBody from '../table-pieces/EmpTableBody'
 
     export default {
         name: "EmployeesTable",
-        
-        data: () => {
-            return {
-                currentEmployees: []
-            }
+
+        props: ['employees'],
+
+        components: {
+            TableHead,
+            TableBody
         },
-        created () {
-            if ('accountId' in this.$route.params) {
-                let currentEmployees = this['employees/getEmployeesByAccountId'](this.$route.params.accountId)
-                if (currentEmployees) {
-                    this.currentEmployees = currentEmployees
-                }
-            }                    
+        created () {                 
         },
         mounted () {
         },
         methods: {
-            goBack() {
-                this.$router.back()
-            },
-            displayDate(dateIn) {
-                return formatDate(dateIn)
-            }
         },
         computed: {
-            ...mapGetters([
-                'employees/getEmployeesByAccountId'
-            ]),
         }
     }
 </script>
