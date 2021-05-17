@@ -1,7 +1,7 @@
 <template>
     <div id="details" class="flex mx-auto">
-        <AccountDetail :eAccount="this.eAccount" :account="this.selectedAccount"></AccountDetail>
-        <EmployeesTable :employees="this.currentEmployees"></EmployeesTable>
+        <AccountDetail :account="eAccount" :accountId="this.accountId"></AccountDetail>
+        <EmployeesTable :accountId="this.accountId"></EmployeesTable>
     </div>
 </template>
 
@@ -21,31 +21,21 @@ import { mapGetters } from 'vuex'
         },
         data: () => {
             return {
-                eAccount: {},
-                selectedAccount: {},
-                currentEmployees: []
+                
             }
         },
         created() {
-            if (this.accountId) {
-                let selectedAccount = this['accounts/getAccountById'](this.accountId)
-                if (selectedAccount) {
-                    this.selectedAccount = selectedAccount
-                    this.eAccount = {
-                        contact: selectedAccount.contact,
-                        phone: selectedAccount.phone,
-                        address: selectedAccount.address,
-                        city: selectedAccount.city,
-                        state: selectedAccount.state,
-                        zip: selectedAccount.zip,
-                        created: selectedAccount.created
-                    }
+            let selectedAccount = this.getAccountById
+                this.eAccount = {
+                    name: selectedAccount.name,
+                    contact: selectedAccount.contact,
+                    phone: selectedAccount.phone,
+                    address: selectedAccount.address,
+                    city: selectedAccount.city,
+                    state: selectedAccount.state,
+                    zip: selectedAccount.zip,
+                    created: selectedAccount.created
                 }
-                let currentEmployees = this['employees/getEmployeesByAccountId'](this.accountId)
-                if (currentEmployees) {
-                    this.currentEmployees = currentEmployees
-                }
-            }
         },
         mounted () {
         },
@@ -53,9 +43,11 @@ import { mapGetters } from 'vuex'
         },
         computed: {
             ...mapGetters([
-                'accounts/getAccountById',
-                'employees/getEmployeesByAccountId'
+                'accounts/getAccountById'
             ]),
+            getAccountById() {
+                return this['accounts/getAccountById'](this.accountId)
+            }
         }
     }
 </script>

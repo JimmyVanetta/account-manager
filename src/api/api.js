@@ -58,6 +58,7 @@ const mockEmployees = [
         "city": "Medina",
         "state": "Ohio",
         "zip": "44256",
+        "isObsolete": false,
         "hireDate": new Date()
     },
     {
@@ -70,6 +71,7 @@ const mockEmployees = [
         "city": "Medina",
         "state": "Ohio",
         "zip": "44256",
+        "isObsolete": false,
         "hireDate": new Date()
     },
     {
@@ -82,6 +84,7 @@ const mockEmployees = [
         "city": "Medina",
         "state": "Ohio",
         "zip": "44256",
+        "isObsolete": false,
         "hireDate": new Date()
     }
 ]

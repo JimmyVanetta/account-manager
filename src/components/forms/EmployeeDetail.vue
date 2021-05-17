@@ -1,11 +1,10 @@
 <template>
-    <div id="get-employee" class="flex rounded bg-white shadow max-w-md mx-auto inline-block">
+    <div id="employee-detail" class="flex rounded bg-white shadow max-w-md mx-auto inline-block">
         <div v-for="(item, index) in this.eEmployee" :key="index" class="block mt-auto">
             <FormText 
                 :item="item" 
                 :index="index"
-            >
-            </FormText>
+            ></FormText>
         </div>
         <EmployeeButtons></EmployeeButtons>
     </div>

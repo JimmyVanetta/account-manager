@@ -4,8 +4,8 @@
             :name="this.account.name"
         ></FormHeader>
         <FormCard
-            :accountId="this.account.id"
-            :account="eAccount"
+            :accountId="this.accountId"
+            :account="account"
             :date="date"
             :remove="remove"
             :verify="verify"
@@ -23,8 +23,8 @@
         name: "AccountDetail",
 
         props: [
-            'account',
-            'eAccount'
+            'accountId',
+            'account'
         ],
         components: {
             FormHeader,
@@ -36,11 +36,11 @@
                 'accounts/removeAccount'
             ]),
             remove() {
-                this.$store.dispatch('accounts/removeAccount', this.account.id)
+                this.$store.dispatch('accounts/removeAccount', this.accountId)
                 this.$router.back()
             },
             verify() {
-                this.$store.dispatch('accounts/verifyAccount', this.account.id)
+                this.$store.dispatch('accounts/verifyAccount', this.accountId)
                 this.$router.back()
             },
         },

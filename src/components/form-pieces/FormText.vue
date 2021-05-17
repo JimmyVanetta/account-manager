@@ -1,6 +1,6 @@
 <template>
     <div id="form-text">
-        <div v-if="this.index != 'created'">
+        <div v-if="(this.index != 'created')">
             <label :for="this.index" class="font-bold">{{ this.index }}</label>
             <p :id="this.index">{{  this.item  }}</p>
         </div>

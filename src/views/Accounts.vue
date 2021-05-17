@@ -1,6 +1,6 @@
 <template>
-    <div id="accounts" class="w-3/5 mx-auto">
-        <AccountsTable ref="AccountsTable" :accounts="currentAccounts"></AccountsTable>
+    <div id="accounts" class="w-full mx-5">
+        <AccountsTable :accounts="currentAccounts"></AccountsTable>
     </div>
 </template>
 

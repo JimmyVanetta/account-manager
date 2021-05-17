@@ -1,7 +1,13 @@
 <template>
     <tbody>
-        <tr v-for="(account, index) in this.accounts" :key="index" class="text-lg">
+        <tr v-for="(account, index) in this.accounts" :key="index" class="text-base">
             <td class="border border-black px-4 py-2 text-left">{{ account.name }}</td>
+            <td class="border border-black px-4 py-2 text-left">{{ account.contact }}</td>
+            <td class="border border-black px-4 py-2 text-left">{{ account.phone }}</td>
+            <td class="border border-black px-4 py-2 text-left">{{ account.address }}</td>
+            <td class="border border-black px-4 py-2 text-left">{{ account.city }}</td>
+            <td class="border border-black px-4 py-2 text-left">{{ account.state }}</td>
+            <td class="border border-black px-4 py-2 text-left">{{ account.zip }}</td>
             <td class="border border-black px-4 py-2 text-left">{{ date(account.created) }}</td>
             <td class="border border-black px-4 py-2">{{ account.verified ? "Y" : "N" }}</td>
             <td class="border border-black px-4 py-2">
@@ -49,5 +55,7 @@
 </script>
 
 <style scoped>
-
+    td {
+        white-space: nowrap;
+    }
 </style>

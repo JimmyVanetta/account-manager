@@ -1,6 +1,7 @@
 import Accounts from '../views/Accounts.vue'
 import Details from '../views/Details.vue'
 import EmployeeDetail from '../components/forms/EmployeeDetail.vue'
+import NotFound from '../views/NotFound.vue'
 
 export const routes = [
     { 
@@ -19,5 +20,10 @@ export const routes = [
         component: EmployeeDetail,
         name: 'EmployeeDetail',
         props: true
-    }
+    },
+    {
+        path: '*',
+        name: 'Not Found',
+        component: NotFound
+      }
 ]

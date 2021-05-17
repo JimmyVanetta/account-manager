@@ -6,7 +6,7 @@ const state = () => ({
 })
 const getters = {
     getEmployeeById: state => id => state.employees.find(employee => employee.id === id),
-    getEmployeesByAccountId: state => id => state.employees.filter(employee => employee.accountId === id)
+    getEmployeesByAccountId: state => id => state.employees.filter(employee => employee.accountId === id && !employee.isObsolete)
 }
 const actions = {
     getEmployees ({commit}) {
@@ -39,13 +39,11 @@ const mutations = {
         state.employees = employees
     },
     REMOVE_EMPLOYEE(state, employeeId) {
-        // var employees = state.employees
-        // employees.splice(employees.indexOf(employee), 1)
-        // state.employees = employees
         var id = employeeId
         var employees = state.employees // get array of employees from state
         var employee = employees.find(employee => employee.id === id) // get employee from array
-        employees.splice(employees.indexOf(employee), 1) // remove employee from array - ** change to soft delete **
+        employee.isObsolete = !employee.isObsolete // mark obsolete
+        employees.splice(employees.indexOf(employee), 0) // merge employee back in to array
         state.employees = employees // merge updated array back in to state
     }
 }
