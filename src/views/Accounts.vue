@@ -1,5 +1,5 @@
 <template>
-    <div id="accounts" class="w-full mx-5">
+    <div id="accounts" class="flex mx-auto w-5/6">
         <AccountsTable :accounts="currentAccounts"></AccountsTable>
     </div>
 </template>

@@ -8,7 +8,6 @@
             ></FormText>
         </div>
         <AccountButtons 
-            :accountId="this.accountId" 
             :remove="remove" 
             :verify="verify"
         ></AccountButtons>

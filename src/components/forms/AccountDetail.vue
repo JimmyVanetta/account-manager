@@ -14,7 +14,7 @@
 </template>
 
 <script>
-    import FormHeader from '../form-pieces/AcctFormHeader'
+    import FormHeader from '../form-pieces/FormHeader'
     import FormCard from '../form-pieces/AcctFormCard'
     import { formatDate } from '../../utils/utils'
     import { mapActions } from 'vuex'

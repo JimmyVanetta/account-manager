@@ -1,6 +1,6 @@
 <template>
     <div id="details" class="flex mx-auto">
-        <AccountDetail :account="eAccount" :accountId="this.accountId"></AccountDetail>
+        <AccountDetail :account="this.eAccount" :accountId="this.accountId"></AccountDetail>
         <EmployeesTable :accountId="this.accountId"></EmployeesTable>
     </div>
 </template>

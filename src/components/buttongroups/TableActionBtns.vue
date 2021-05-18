@@ -4,7 +4,8 @@
             <i class="fa fa-edit"></i>
         </router-link> -->
         <DetailsBtn
-            :id="id"
+            :accountId="this.accountId"
+            :employeeId="this.employeeId"
             :type="type"
         ></DetailsBtn>
         <EditBtn></EditBtn>
@@ -24,6 +25,8 @@
     export default {
         props: [
             'id',
+            'accountId',
+            'employeeId',
             'remove',
             'type'
         ],

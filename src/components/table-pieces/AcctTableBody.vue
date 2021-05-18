@@ -13,6 +13,7 @@
             <td class="border border-black px-4 py-2">
                 <TableButtons 
                     :id="account.id"
+                    :accountId="account.id"
                     :type="'account'" 
                     :remove="remove"
                     :verify="verify"
