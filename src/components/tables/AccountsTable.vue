@@ -7,7 +7,7 @@
             <table id="accounts-table" class="w-full bg-white shadow-md rounded border border-black">
                 <TableHead></TableHead>
                 <TableBody 
-                    :accounts="this.accounts"
+                    :accounts="accounts"
                 ></TableBody>
             </table>
         </div>
@@ -27,8 +27,18 @@
             TableHead,
             TableBody
         },
+        data: () => {
+            return {
+            }
+        },
         created () {                
         },
+        mounted () {
+        },
+        methods: {
+        },
+        computed: {
+        }
     }
 </script>
 

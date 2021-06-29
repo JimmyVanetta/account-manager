@@ -9,8 +9,8 @@ const getters = {
     getEmployeesByAccountId: state => id => state.employees.filter(employee => employee.accountId === id && !employee.isObsolete)
 }
 const actions = {
-    getEmployees ({commit}) {
-        api.getAllEmployees(employees => {
+    getStoredEmployees ({commit}) {
+        api.getStoredEmployees(employees => {
             commit('SET_EMPLOYEES', employees)
         })
     },

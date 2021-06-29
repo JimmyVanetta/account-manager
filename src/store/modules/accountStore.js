@@ -11,8 +11,8 @@ const getters = {
     getObsoleteAccounts: state => state.accounts.filter(account => account.isObsolete)
 }
 const actions = {
-    getAccounts ({commit}) {
-        api.getAllAccounts(accounts => {
+    getStoredAccounts ({commit}) {
+        api.getStoredAccounts(accounts => {
             commit('SET_ACCOUNTS', accounts)
         })
     },

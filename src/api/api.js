@@ -89,10 +89,10 @@ const mockEmployees = [
     }
 ]
 export default {
-    getAllAccounts (cb) {
+    getStoredAccounts (cb) {
         setTimeout(() => cb(mockAccounts), 100)
     },
-    getAllEmployees (cb) {
+    getStoredEmployees (cb) {
         setTimeout(() => cb(mockEmployees), 100)
     }
 }
