@@ -1,7 +1,7 @@
 <template>
     <div id="details" class="flex mx-auto">
         <AccountDetail :account="this.eAccount" :accountId="this.accountId"></AccountDetail>
-        <EmployeesTable :accountId="this.accountId"></EmployeesTable>
+        <EmployeesTable :accountId="accountId"></EmployeesTable>
     </div>
 </template>
 
@@ -12,7 +12,7 @@ import { mapGetters } from 'vuex'
 
     export default {
         name: 'Details',
-        
+
         props: ['accountId'],
 
         components: {
@@ -21,7 +21,6 @@ import { mapGetters } from 'vuex'
         },
         data: () => {
             return {
-                
             }
         },
         created() {

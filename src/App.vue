@@ -24,6 +24,7 @@
 
 <script>
 import SideButtons from './components/buttongroups/SideNavBtns'
+import { mapActions } from 'vuex'
 
   export default {
     name: 'App',
@@ -33,9 +34,16 @@ import SideButtons from './components/buttongroups/SideNavBtns'
     },
     mounted () {
     },
-    async created() {
+    async created () {
+      // API Call
+      this.$store.dispatch("accounts/getStoredAccounts")
+      this.$store.dispatch("employees/getStoredEmployees")                
     },
     methods: {
+      ...mapActions([
+        'accounts/getStoredAccounts',
+        'employees/getStoredEmployees'
+      ]),
     },
     computed: {
     }

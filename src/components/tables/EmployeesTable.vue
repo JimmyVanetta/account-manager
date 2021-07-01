@@ -7,7 +7,7 @@
             <table id="employees-table" class="w-full bg-white shadow-md rounded border border-black">
                 <TableHead></TableHead>
                 <TableBody
-                    :accountId="this.accountId"
+                    :accountId="accountId"
                     :employees="getEmployees"
                 ></TableBody>
             </table>
@@ -29,7 +29,11 @@
             TableHead,
             TableBody
         },
-        created () {     
+        data: () => {
+            return {
+            }
+        },
+        created () {    
         },
         mounted () {
         },

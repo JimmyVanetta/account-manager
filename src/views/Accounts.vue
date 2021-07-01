@@ -1,6 +1,6 @@
 <template>
     <div id="accounts" class="flex mx-auto w-5/6">
-        <AccountsTable :accounts="currentAccounts"></AccountsTable>
+        <AccountsTable></AccountsTable>
     </div>
 </template>
 
@@ -32,14 +32,6 @@
             ]),
         },
         computed: {
-            ...mapGetters({
-                // Get accounts NOT soft deleted
-                currentAccounts: "accounts/getCurrentAccounts"
-                // Get verified accounts
-                    // Pee Pee Poo Poo
-                // Get soft deleted (isObsolete) accounts
-                    // Pee Pee Poo Poo
-            })
         }
     }
 </script>

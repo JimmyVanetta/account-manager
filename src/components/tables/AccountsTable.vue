@@ -17,11 +17,10 @@
 <script>
     import TableHead from '../table-pieces/AcctTableHead'
     import TableBody from '../table-pieces/AcctTableBody'
+    import { mapGetters } from 'vuex'
     
     export default {
         name: "AccountsTable",
-
-        props: ['accounts'],
 
         components: {
             TableHead,
@@ -38,6 +37,14 @@
         methods: {
         },
         computed: {
+            ...mapGetters({
+                // Get accounts NOT soft deleted
+                accounts: "accounts/getCurrentAccounts"
+                // Get verified accounts
+                    // Pee Pee Poo Poo
+                // Get soft deleted (isObsolete) accounts
+                    // Pee Pee Poo Poo
+            })
         }
     }
 </script>

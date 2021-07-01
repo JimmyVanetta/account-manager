@@ -8,10 +8,9 @@
                 <TableButtons 
                     :id="employee.id"
                     :employeeId="employee.id"
-                    :accountId="this.accountId"
+                    :accountId="accountId"
                     :type="'employee'" 
-                    :remove="remove"
-                ></TableButtons>
+                    :remove="remove"></TableButtons>
             </td>
         </tr>
     </tbody>
