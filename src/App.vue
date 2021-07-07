@@ -1,5 +1,6 @@
 <template>
   <div id="app" class="bg-gray-200 h-screen">
+    <LoadingSpinner/>
     <div class="bg-white h-screen">
       <div class="flex h-full">
         <div id="bg-img" class="bg-gray-200 w-full flex-row items-start justify-center">
@@ -13,6 +14,7 @@
             <!-- side flex column -->
             <div class="flex px-2 py-3 pb-4 w-48 bg-green-100 shadow flex-col justify-between items-center h-full border-t">
               <SideButtons></SideButtons>
+              <!-- <button @click="() => { isVisible = !isVisible }" style="z-index: 9000;">Show Spin</button> -->
             </div>
             <router-view></router-view>
           </div>
@@ -23,6 +25,7 @@
 </template>
 
 <script>
+import LoadingSpinner from './components/LoadingSpinner.vue'
 import SideButtons from './components/buttongroups/SideNavBtns'
 import { mapActions } from 'vuex'
 
@@ -30,22 +33,25 @@ import { mapActions } from 'vuex'
     name: 'App',
 
     components: {
-      SideButtons
+      SideButtons,
+      LoadingSpinner
     },
-    mounted () {
-    },
-    async created () {
+    async created() {
+      // TURN ON LOADING SPINNER
+        this.$store.dispatch("spinner/showModal")
       // API Call
       this.$store.dispatch("accounts/getStoredAccounts")
       this.$store.dispatch("employees/getStoredEmployees")                
+    },
+    mounted() {
+      // TURN OFF LOADING SPINNER
+        // PEE PEE POO POO
     },
     methods: {
       ...mapActions([
         'accounts/getStoredAccounts',
         'employees/getStoredEmployees'
       ]),
-    },
-    computed: {
     }
   }
 </script>
