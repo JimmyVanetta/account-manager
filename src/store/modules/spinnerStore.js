@@ -1,20 +1,25 @@
+// INITIAL STATE
 const state = () => ({
     isVisible: false,
 })
 const getters = {
 }
+// ACTIONS
 const actions = {
-    showModal({ commit }, isVisible) {
-        commit('SHOW_MODAL', isVisible)
+    showModal({ commit }) {
+        commit('SHOW_SPINNER')
+    },
+    hideModal({ commit }) {
+        commit('HIDE_SPINNER')
     }
-        // PEE PEE POO POO
-    // HIDE MODAL
-        // PEE PEE POO POO
 }
+// ACTIONS
 const mutations = {
-    SHOW_MODAL(state, isVisible) {
-        isVisible = !isVisible
-        state.isVisible = isVisible
+    SHOW_SPINNER(state) {
+        state.isVisible = true
+    },
+    HIDE_SPINNER(state) {
+        state.isVisible = false
     }
 }
 export default {

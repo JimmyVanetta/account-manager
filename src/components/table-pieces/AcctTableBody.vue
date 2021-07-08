@@ -27,7 +27,7 @@
 <script>
     import TableButtons from '../buttongroups/TableActionBtns'
     import { formatDate } from '../../utils/utils'
-    import { mapActions } from 'vuex'
+    // import { mapActions } from 'vuex'
 
     export default {
         name: 'AcctTableBody',
@@ -37,11 +37,9 @@
         components: {
             TableButtons
         },
+        mounted () {
+        },
         methods:{
-            ...mapActions([
-                'accounts/verifyAccount',
-                'accounts/removeAccount'
-            ]),
             remove(accountId) {
                 this.$store.dispatch('accounts/removeAccount', accountId)
             },

@@ -6,7 +6,7 @@
 
 <script>
     import AccountsTable from '../components/tables/AccountsTable'
-    import { mapActions } from 'vuex'
+    // import { mapActions } from 'vuex'
 
     export default {
         name: "Accounts",
@@ -18,18 +18,11 @@
             return {
             }
         },
-        created () {
-            // API Call
-            this.$store.dispatch("accounts/getStoredAccounts")
-            this.$store.dispatch("employees/getStoredEmployees")                
+        created () {              
         },
-        mounted () {
+        mounted () { 
         },
         methods: {
-            ...mapActions([
-                'accounts/getStoredAccounts',
-                'employees/getStoredEmployees'
-            ]),
         },
         computed: {
         }

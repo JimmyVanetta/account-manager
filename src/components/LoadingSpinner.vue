@@ -2,7 +2,7 @@
     <div v-if="isVisible" id="loading-div">
         <div class="spinner">
             <img class="rotate w-24" src="../assets/smugpepe.png" alt="V">
-            <span class="loading-msg text-black font-bold text-xl">{{ message }}</span>
+            <span class="loading-msg text-black font-bold text-xl">Loading...</span>
         </div>
     </div>
 </template>
@@ -12,20 +12,16 @@
         name: 'LoadingSpinner',
 
         props: {
-            message: {
-                type: String,
-                default: 'Loading...',
-                required: false
-            },
+            // message: {
+            //     type: String,
+            //     default: 'Loading...',
+            //     required: false
+            // },
             isVisible: {
                 type: Boolean,
-                default: false,
-                required: false
+                // default: false,
+                required: true
             },
-            // spinPicture: {
-            //     type: String,
-            //     required: true,
-            // }
         }
     }
 </script>
